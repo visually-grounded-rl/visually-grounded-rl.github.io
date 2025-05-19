@@ -1016,6 +1016,7 @@
             <div class="tabs">
                 <button class="tablinks active" onclick="openTab(event,'ex1')">Example 1</button>
                 <button class="tablinks" onclick="openTab(event,'ex2')">Example 2</button>
+                <button class="tablinks" onclick="openTab(event,'ex3')">Example 3</button>
             </div>
             
             <div id="ex1" class="tabcontent" style="display:block">
@@ -1039,7 +1040,13 @@
                 </div>
             </div>
 
-            
+            <div id="ex3" class="tabcontent">
+                <div class="eye-demo" id="demo-rvs">
+                    <div class="eye-scene">
+                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                    </div>
+                </div>
+            </div>
         </div><!-- End Grid -->
     </div><!-- End Page Container -->
 </body>
@@ -1130,14 +1137,43 @@
         { text: "second step", x: 900, y: 650 }
     ];
 
+    const STEPS_RVS_FILTER = [
+            {
+                text: "The top of the image shows the OsClass logo.",
+                x: 218,
+                y: 40
+            },
+            {
+                text: "To achieve the goal, I need to navigate to the appropriate category first. Since there is a clickable area for 'Rvs + campers', clicking this will allow me to filter listings related to RVs and campers.",
+                x: 350,
+                y: 1975
+            },
+            {
+                text: "Clicking on the 'Rvs + campers' category icon will help narrow down the search results to listings related to RVs and campers. This will allow us to further filter these results based on color and recency.",
+                x: 350,
+                y: 1975
+            },
+            {
+                text: "After clicking on 'Rvs + campers,' I need to locate the section that allows us to filter by color. The current view shows a list of items under this category, including an image of a vehicle.",
+                x: 268,
+                y: 794
+            },
+            {
+                text: "To find the newest listing in a dark color, I should check if there are any filters available for selecting colors. If not present initially, scrolling may reveal additional options like filters or sorting features that could help achieve our goal.",
+                x: 268,
+                y: 794
+            }
+        ];
+
     /* ---------- instantiate as many as you like ---------- */
     let demoBasketsInstance;
     let demoFridgeInstance;
-
+    let demoRvsInstance;
     // Create instances when page loads
     document.addEventListener('DOMContentLoaded', function () {
         demoBasketsInstance = new EyeDemo('#demo-baskets', STEPS_BASKETS);
         demoFridgeInstance = new EyeDemo('#demo-fridge', STEPS_FRIDGE);
+        demoRvsInstance = new EyeDemo('#demo-rvs', STEPS_RVS_FILTER);
     });
 
     /* ---------- Tab switching function ---------- */
@@ -1165,6 +1201,8 @@
             demoBasketsInstance.reset();
         } else if (tabName === 'ex2' && demoFridgeInstance) {
             demoFridgeInstance.reset();
+        } else if (tabName === 'ex3' && demoRvsInstance) {
+            demoRvsInstance.reset();
         }
     }
 </script>
