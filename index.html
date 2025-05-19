@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+
+    <!-- Taken from view-source:https://voyager.minedojo.org/ -->
+    <script async src=""></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q75H4YSQ8M');
+    </script>
+    <!-- Adapted from Dave Epstein's BlogGAN webpage template: https://dave.ml/blobgan/ -->
+    <title>Grounded Reinforcement Learning for Visual Reasoning
+    </title>
+    <link rel="icon" href="images/memory.png" type="image/png">
+    <link rel="stylesheet" href="./bulma.min.css" />
+    <link rel="stylesheet" href=".bulma-carousel.min.css" />
+    <link rel="stylesheet" href=".bulma-slider.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            /* font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; */
+            font-family: 'Lato';
+        }
+
+        .cite {
+            padding: 0px;
+            background: #ffffff;
+            font-size: 18px
+        }
+
+        .card {
+            border: 1px solid #ccc
+        }
+
+        /* img { margin-bottom:-6px;} */
+        p {
+            font-size: 18px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="description"
+        content="Grounded Reinforcement Learning for Visual Reasoning">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#f5ece5">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#276FBF">
+    <meta name="msapplication-TileColor" content="#276FBF">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            /* font-family: 'GT Ultra', sans-serif !important; */
+            font-family: 'Lato' !important;
+            font-weight: 400;
+            font-size: 18px;
+            overflow-x: hidden;
+            box-sizing: border-box;
+            /* color: #1f1e1d; */
+            color: #000000;
+            background-color: #f5ece5;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        a {
+            /* color: #276FBF !important; */
+            color: #276FBF;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            /* color: #184477 !important; */
+            color: #184477;
+        }
+
+        section h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        section h5,
+        section h3 {
+            justify-content: space-between;
+
+            display: flex;
+            align-items: center;
+        }
+    </style>
+
+    <style>
+        .outer {
+            width: 100%;
+            height: 200px;
+            background-color: red;
+        }
+
+        .inner {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .video-responsive {
+        text-align: center;
+        }
+
+        @media screen and (max-width: 560px) {
+        .video-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+        .video-responsive iframe {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        }
+
+        .log {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_cat {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_cat {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_sn {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_sn {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_gc {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_gc {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_shading {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_shading {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_gqa {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_gqa {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inner_demo {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            color: white;
+            cursor: crosshair;
+            user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .log_demo {
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* .demo_gif {
+        position: relative;
+        width: 50%;
+        text-align: center;
+        margin: auto;
+        } */
+    </style>
+
+
+    <style>
+        .project-links {
+            /* width: 400px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center; */
+            max-width: 600px;
+            margin: 0 auto;
+            align-items: center;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    </style>
+
+    <!-- Paper button -->
+    <style>
+        .btn-paper {
+            width: 95px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+
+        .btn-paper:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+        }
+
+        .vertical-center-paper {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
+            right: 0;
+            float: left; */
+            padding-right: 1px;
+            padding-left: 6px;
+        }
+
+    </style>
+
+    <!-- Paper button -->
+    <style>
+        .btn-paper-helper-x {
+            width: 130px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+    
+        .btn-paper-helper-x:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+        }
+    
+        .vertical-center-paper-helper-x {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
+                right: 0;
+                float: left; */
+            padding-right: 1px;
+            padding-left: 6px;
+        }
+    </style>
+
+    <!-- Code button -->
+    <style>
+        .btn-code {
+            width: 200px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+
+        .btn-code:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .vertical-center-code {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
+            left: 0px;
+            float: left; */
+            padding-right: 8px;
+            padding-left: 10px;
+        }
+    </style>
+
+    <!-- Citation button -->
+    <style>
+        .btn-citation {
+            width: 110px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+
+        .btn-citation:link {
+            color: black;
+        }
+
+        .btn-citation:visited {
+            color: black;
+        }
+
+        /* .btn-citation:hover {
+            color: black;
+        } */
+        .btn-citation:active {
+            color: black;
+        }
+
+        .btn-citation:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+        }
+
+        .vertical-center-cit {
+            height: 70%;
+            position: relative;
+            /* top: 0px;
+            right: 0;
+            float: left; */
+            padding-right: 7px;
+            padding-left: 6px;
+        }
+    </style>
+
+<style>
+    .btn-twitter {
+        width: 100px;
+        height: 35px;
+        cursor: pointer;
+        border-radius: 25px;
+        background: transparent;
+        border: 2px solid #91C9FF;
+        outline: none;
+        transition: 1s ease-in-out;
+        text-decoration: none;
+        align-items: center;
+        display: flex;
+        text-align: center;
+        font-weight: 500;
+        color: black;
+    }
+
+    .btn-twitter:hover {
+        transition: 0.75s ease-in-out;
+        background: #8bb2ff1e;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .vertical-center-twitter {
+        height: 80%;
+        position: relative;
+        /* top: 0px;
+        left: 0px;
+        float: left; */
+        padding-right: 8px;
+        padding-left: 10px;
+    }
+</style>
+
+    <!-- Interactive button -->
+    <style>
+        .btn-interact {
+            width: 133px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+
+        .btn-interact:link {
+            color: black;
+        }
+
+        .btn-interact:visited {
+            color: black;
+        }
+
+        /* .btn-citation:hover {
+                color: black;
+            } */
+        .btn-interact:active {
+            color: black;
+        }
+
+        .btn-interact:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+            color: black;
+        }
+
+        .vertical-center-interact {
+            height: 70%;
+            position: relative;
+            /* top: 0px;
+                right: 0;
+                float: left; */
+            padding-right: 7px;
+            padding-left: 6px;
+        }
+    </style>
+
+    <style>
+        .vertical-center {
+            height: 80%;
+            position: relative;
+            top: 0px;
+            right: 0;
+            float: left;
+        }
+    </style>
+
+    <style>
+        /* The grid: Four equal columns that floats next to each other */
+        /* .column {
+            float: left;
+            width: 25% !important;
+            padding: 10px;
+        } */
+
+        /* Style the images inside the grid */
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .column img:hover {
+            opacity: 1;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The expanding image container (positioning is needed to position the close button and the text) */
+        .container {
+            position: relative;
+            display: none;
+        }
+
+        /* Expanding image text */
+        #imgtext {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* Closable button inside the image */
+        .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: rgb(0, 0, 0);
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        .centered {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.26);
+        }
+
+        .text-block {
+            position: absolute;
+            /* bottom: 25px;
+        right: 20px; */
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            background-color: rgba(0, 0, 0, 0.26);
+            color: white;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .parentContainer {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        
+
+        .column-left,
+        .column-right {
+        width: 50%;
+        }
+
+        .container {
+        display: flex;
+        padding: 0px; /* Adjust as needed */
+        }
+
+        .columns {
+            justify-content: center;
+        }
+
+        .video-column {
+            padding: 0; /* Remove padding */
+        }
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* this will center the videos */
+        }
+/* 
+        .is-one-third-desktop {
+            flex: 0 1 calc(32.333% - 4px); 
+            margin: 2px; 
+            max-width: 32.333%;
+        } */
+
+        /* .is-one-third-desktop {
+            flex: 0 1 calc(24% - 4px); 
+            margin: 2px; 
+            max-width: 24%;
+        } */
+
+        .is-centered {
+            text-align: center;
+        }
+
+        .typed-text {
+            border-right: 2px solid gray;
+            padding: 5px;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+        .text-segment {
+            display: inline;
+        }
+
+        #layout {
+            width: 100%; /* Ensures the container div spans the full width */
+            overflow: hidden; /* Clears the float, containing the floated children */
+        }
+
+        #textBlock {
+            width: 40%;
+            float: left; /* Aligns this div to the left */
+            height: 600px; /* Match the height with the container for uniformity */
+            background-color: #f8f8f8; /* Just a sample color for visibility */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #graphic {
+            width: 20%;
+            float: left; /* Centers between text and container */
+            height: 600px; /* Match the height with the container */
+            background-color: #ccc; /* Just a sample color for visibility */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            width: 40%;
+            float: left; /* Aligns this div to the left */
+            height: 600px; /* Fixed height for scrollable area */
+            overflow-y: auto; /* Enables vertical scrolling */
+            background-color: #fff; /* Background color for visibility */
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* .tabcontent {
+            display: none;
+            width: 100%;
+            float: left;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .tablinks {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tablinks:hover {
+            background-color: #ddd;
+        }
+
+        .tabs {
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .tabs button.active {
+            background-color: #ccc;
+        } */
+
+        /* Basic styling for the tab container */
+        .tabs {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Style the buttons inside the tab */
+        .tablinks {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 17px;
+            width: 20%; /* Equal width tabs */
+        }
+
+        /* Change background color of tabs on hover */
+        .tablinks:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tablinks.active {
+            background-color: #666;
+            color: white;
+        }
+
+        /* Tab content (optional: hide initially with display:none) */
+        .tabcontent {
+            display: none;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+        .tabcontent {
+            display: none; /* Hide all tab content by default */
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        
+        /* Tab content (optional: hide initially with display:none) */
+        .tabcontent_vwa {
+            display: none;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+        .tabcontent_vwa {
+            display: none; /* Hide all tab content by default */
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+        /* Style the buttons inside the tab */
+        .tablinks_vwa {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 17px;
+            width: 20%; /* Equal width tabs */
+        }
+
+        /* Change background color of tabs on hover */
+        .tablinks_vwa:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tablinks_vwa.active {
+            background-color: #666;
+            color: white;
+        }
+
+        .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
+
+        /* Tab content (optional: hide initially with display:none) */
+        .tabcontent_ego {
+            display: none;
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+        .tabcontent_ego {
+            display: none; /* Hide all tab content by default */
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeIn 0.5s; /* Fading effect */
+        }
+
+        /* Style the buttons inside the tab */
+        .tablinks_ego {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 17px;
+            width: 20%; /* Equal width tabs */
+        }
+
+        /* Change background color of tabs on hover */
+        .tablinks_ego:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tablinks_ego.active {
+            background-color: #666;
+            color: white;
+        }
+    </style>
+    <style>
+        .names-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .names-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Adjust the gap between names */
+            margin-bottom: 10px; /* Adjust the spacing between rows */
+        }
+        .names-row a {
+            text-decoration: none;
+            color: #1a73e8; /* Adjust the link color */
+            font-size: 22px; /* Specify the font size */
+        }
+        .institution-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Adjust the gap between logos and text */
+            margin-top: 10px;
+        }
+        .highlighted-text {
+            font-size: 1.2em; Increase font size
+            /* font-weight: bold; Make text bold */
+            padding: 10px; /* Add padding */
+            border-radius: 5px; /* Rounded corners */
+            display: inline-block; /* Ensure padding and border apply correctly */
+        }
+    </style>
+</head>
+
+<body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:1080px;">
+
+        <!-- The Grid -->
+        <div class="w3-row-padding">
+
+            <!-- paper container -->
+            <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                <div class="w3-center">
+                    <h2>Grounded Reinforcement Learning</h2>
+                    <h2>for Visual Reasoning</h2>
+                    <br>
+                    <h4 class="highlighted-text">Anonymous Authors</h4>
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="project-links">
+                        <a href="https://anonymous.4open.science/r/VLM-search-7721" target="_blank" class="btn-code" role="button">
+                            <img src="images/code.png" class="vertical-center-code"> Anonymous Code
+                        </a>
+                    </div>
+
+                    <br>
+
+                    <hr>
+                    <div class="w3-center">
+                        <h2>Abstract</h2>
+                    </div>
+                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language models in tasks such as
+                        mathematics and coding, visual reasoning introduces added complexity by requiring models to direct visual attention,
+                        interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce <strong>ViGoRL</strong>
+                        (Visually Grounded Reinforcement Learning), a vision-language model trained with RL to explicitly anchor each
+                        reasoning step to specific visual coordinates. Inspired by human visual decision-making, <strong>ViGoRL</strong>
+                        learns to produce spatially grounded reasoning traces, guiding visual attention to task-relevant regions at each
+                        step. Across a diverse set of visual reasoning benchmarks—including SAT-2 and BLINK for spatial reasoning, and
+                        ScreenSpot and VisualWebArena for web-based grounding—<strong>ViGoRL</strong> consistently outperforms both
+                        supervised fine-tuning and conventional RL baselines that lack explicit grounding mechanisms. Incorporating
+                        multi-turn RL with visual feedback further improves <strong>ViGoRL</strong>’s performance on localizing small
+                        elements. Additionally, we find that grounding amplifies other visual behaviors such as region exploration, visual
+                        subgoal setting, and verification. Finally, human evaluations show that the model’s visual references are not only
+                        spatially accurate but also helpful for understanding model reasoning steps. Our results show that visually grounded
+                        RL is a strong paradigm for imbuing models with general-purpose visual reasoning.</p>
+                    <hr>
+                </div>
+
+            </div><!-- End paper container -->
+        </div><!-- End Grid -->
+    </div><!-- End Page Container -->
+</body>
+
+</html>
