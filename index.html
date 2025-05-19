@@ -943,6 +943,24 @@
             border-radius: 5px; /* Rounded corners */
             display: inline-block; /* Ensure padding and border apply correctly */
         }
+
+        /* ----- live-trace component ----- */
+        .eye-demo            {display:flex;gap:1.5rem;margin:2rem 0;}
+        .eye-scene           {position:relative;overflow:hidden;}   /* clip fovea shadow */
+        .eye-img             {max-width:380px;width:100%;display:block;}
+        .eye-story           {flex:1;white-space:pre-wrap;line-height:1.35;}
+        .eye-story span      {transition:background .25s;}
+        .eye-story .active   {background:#ffe666;}
+
+        .eye-fovea{          /* injected overlay */
+        position:absolute;
+        width:110px;height:110px;
+        border-radius:50%;
+        pointer-events:none;
+        box-shadow:0 0 0 9999px rgba(0,0,0,.55);  /* blackout, clipped by overflow */
+        outline:3px solid #4da3ff;
+        transition:left .6s ease, top .6s ease;
+        }
     </style>
 </head>
 
@@ -994,8 +1012,162 @@
                 </div>
 
             </div><!-- End paper container -->
+
+            <div class="tabs">
+                <button class="tablinks active" onclick="openTab(event,'ex1')">Example 1</button>
+                <button class="tablinks" onclick="openTab(event,'ex2')">Example 2</button>
+            </div>
+            
+            <div id="ex1" class="tabcontent" style="display:block">
+                <div class="eye-demo" id="demo-baskets">
+                    <div class="eye-scene">
+                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+                
+                    <pre class="eye-story"></pre> <!-- text is injected by JS -->
+                </div>
+            </div>
+            <div id="ex2" class="tabcontent">
+                <div class="eye-demo" id="demo-fridge">
+                    <div class="eye-scene">
+                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+                
+                    <pre class="eye-story"></pre> <!-- text is injected by JS -->
+                </div>
+            </div>
+
+            
         </div><!-- End Grid -->
     </div><!-- End Page Container -->
 </body>
+
+<script>
+    /* ---------- tiny helper class ---------- */
+    class EyeDemo {
+        constructor(rootSelector, steps) {
+            this.root = document.querySelector(rootSelector);
+            this.img = this.root.querySelector('.eye-img');
+            this.story = this.root.querySelector('.eye-story');
+            this.steps = steps;
+            this.idx = -1;
+            this.timeout = null;
+
+            /* create the fovea */
+            this.fovea = document.createElement('div');
+            this.fovea.className = 'eye-fovea';
+            this.root.querySelector('.eye-scene').appendChild(this.fovea);
+
+            /* build text spans */
+            this.spans = steps.map((s, i) => {
+                const span = document.createElement('span');
+                span.textContent = s.text + ' ';
+                this.story.appendChild(span);
+                return span;
+            });
+
+            /* run when the image size is known */
+            if (this.img.complete) this.start();
+            else this.img.addEventListener('load', () => this.start());
+        }
+
+        start() {
+            this.scale = this.img.clientWidth / 1024;      // model-pixels → css-pixels
+            this.nextStep();
+        }
+
+        nextStep() {
+            if (++this.idx >= this.steps.length) return;
+
+            const { x, y } = this.steps[this.idx];
+            const R = 55;                                  // fovea radius
+            this.fovea.style.left = x * this.scale - R + 'px';
+            this.fovea.style.top = y * this.scale - R + 'px';
+
+            if (this.idx > 0) this.spans[this.idx - 1].classList.remove('active');
+            this.spans[this.idx].classList.add('active');
+            this.spans[this.idx].scrollIntoView({ block: 'nearest' });
+
+            this.timeout = setTimeout(() => this.nextStep(), 1800);  // pace
+        }
+
+        reset() {
+            // Clear any pending timeout
+            if (this.timeout) {
+                clearTimeout(this.timeout);
+                this.timeout = null;
+            }
+
+            // Reset index
+            this.idx = -1;
+
+            // Reset all spans (remove highlighting)
+            this.spans.forEach(span => {
+                span.classList.remove('active');
+            });
+
+            // Reset fovea position (move off-screen)
+            this.fovea.style.left = '-200px';
+            this.fovea.style.top = '-200px';
+
+            // Restart the animation
+            this.start();
+        }
+    }
+
+    /* ---------- data for each demo ---------- */
+    const STEPS_BASKETS = [
+        { text: "o determine if the baskets are next to the wooden spoons, let's consider their locations. The wooden spoons are placed on the left side of the counter near the stove, as indicated by the position at", x: 70, y: 650 },
+        { text: "Baskets sit farther back near the sink.", x: 620, y: 650 },
+        { text: "A bowl is here, not a basket.", x: 900, y: 650 },
+        { text: "Container with a lid.", x: 200, y: 700 }
+    ];
+
+    const STEPS_FRIDGE = [
+        { text: "first step", x: 620, y: 650 },
+        { text: "second step", x: 900, y: 650 }
+    ];
+
+    /* ---------- instantiate as many as you like ---------- */
+    let demoBasketsInstance;
+    let demoFridgeInstance;
+
+    // Create instances when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+        demoBasketsInstance = new EyeDemo('#demo-baskets', STEPS_BASKETS);
+        demoFridgeInstance = new EyeDemo('#demo-fridge', STEPS_FRIDGE);
+    });
+
+    /* ---------- Tab switching function ---------- */
+    function openTab(evt, tabName) {
+        // Hide all tab content
+        var tabcontents = document.getElementsByClassName("tabcontent");
+        for (var i = 0; i < tabcontents.length; i++) {
+            tabcontents[i].style.display = "none";
+        }
+
+        // Remove "active" class from all tab buttons
+        var tablinks = document.getElementsByClassName("tablinks");
+        for (var i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the specific tab content
+        document.getElementById(tabName).style.display = "block";
+
+        // Add "active" class to the button that opened the tab
+        evt.currentTarget.className += " active";
+
+        // Reset the appropriate demo when switching tabs
+        if (tabName === 'ex1' && demoBasketsInstance) {
+            demoBasketsInstance.reset();
+        } else if (tabName === 'ex2' && demoFridgeInstance) {
+            demoFridgeInstance.reset();
+        }
+    }
+</script>
+
 
 </html>
