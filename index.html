@@ -945,12 +945,32 @@
         }
 
         /* ----- live-trace component ----- */
-        .eye-demo            {display:flex;gap:1.5rem;margin:2rem 0;}
-        .eye-scene           {position:relative;overflow:hidden;}   /* clip fovea shadow */
-        .eye-img             {max-width:380px;width:100%;display:block;}
+        .eye-demo            {display:flex;flex-direction:column;gap:1rem;margin:2rem 0;}
+        .eye-scene-container {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center; /* Change this to center items vertically */
+            background-color: white; /* Ensure background is white */
+        }
+        .eye-scene {
+            position: relative;
+            overflow: hidden;
+            background-color: white; /* Change to white instead of transparent */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .eye-img {
+            max-width: 380px;
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            margin-bottom: 0;
+        }
         .eye-story           {flex:1;white-space:pre-wrap;line-height:1.35;}
         .eye-story span      {transition:background .25s;}
         .eye-story .active   {background:#ffe666;}
+        .eye-story .answer   {margin-top:1rem;display:block;}
 
         .eye-fovea{          /* injected overlay */
         position:absolute;
@@ -960,6 +980,11 @@
         box-shadow:0 0 0 9999px rgba(0,0,0,.55);  /* blackout, clipped by overflow */
         outline:3px solid #4da3ff;
         transition:left .6s ease, top .6s ease;
+        }
+        
+        /* Styles for instruction - remove explicit color to inherit */
+        .eye-instruction {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -1013,38 +1038,126 @@
 
             </div><!-- End paper container -->
 
+            <!-- Spatial Reasoning Tab Section -->
+            <div class="w3-center">
+                <h3>Spatial Reasoning</h3>
+            </div>
             <div class="tabs">
-                <button class="tablinks active" onclick="openTab(event,'ex1')">Example 1</button>
-                <button class="tablinks" onclick="openTab(event,'ex2')">Example 2</button>
-                <button class="tablinks" onclick="openTab(event,'ex3')">Example 3</button>
+                <button class="tablinks spatial active" onclick="openTab(event, 'spatial1', 'spatial')">Example 1</button>
+                <button class="tablinks spatial" onclick="openTab(event, 'spatial2', 'spatial')">Example 2</button>
+                <button class="tablinks spatial" onclick="openTab(event, 'spatial3', 'spatial')">Example 3</button>
             </div>
             
-            <div id="ex1" class="tabcontent" style="display:block">
+            <div id="spatial1" class="tabcontent spatial" style="display:block">
                 <div class="eye-demo" id="demo-baskets">
                     <div class="eye-scene">
                         <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
                         <!-- fovea div is injected by JS -->
                     </div>
-                
+            
                     <pre class="eye-story"></pre> <!-- text is injected by JS -->
                 </div>
             </div>
-            <div id="ex2" class="tabcontent">
-                <div class="eye-demo" id="demo-fridge">
+            <div id="spatial2" class="tabcontent spatial">
+                <div class="eye-demo" id="demo-spatial2">
                     <div class="eye-scene">
-                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                        <img src="images/foveal/image_347_resized.jpg" class="eye-img">
                         <!-- fovea div is injected by JS -->
                     </div>
-                
+            
                     <pre class="eye-story"></pre> <!-- text is injected by JS -->
                 </div>
             </div>
-
-            <div id="ex3" class="tabcontent">
-                <div class="eye-demo" id="demo-rvs">
+            <div id="spatial3" class="tabcontent spatial">
+                <div class="eye-demo" id="demo-spatial3">
                     <div class="eye-scene">
-                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                        <img src="images/foveal/image_169.jpg" class="eye-img">
+                        <!-- fovea div is injected by JS -->
                     </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            
+            <!-- Web Grounding Tab Section -->
+            <div class="w3-center">
+                <h3>Web Grounding</h3>
+            </div>
+            <div class="tabs">
+                <button class="tablinks grounding active" onclick="openTab(event, 'grounding1', 'grounding')">Example 1</button>
+                <button class="tablinks grounding" onclick="openTab(event, 'grounding2', 'grounding')">Example 2</button>
+                <button class="tablinks grounding" onclick="openTab(event, 'grounding3', 'grounding')">Example 3</button>
+            </div>
+            
+            <div id="grounding1" class="tabcontent grounding" style="display:block">
+                <div class="eye-demo" id="demo-grounding1">
+                    <div class="eye-scene">
+                        <img src="images/foveal/webpage1_final.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            <div id="grounding2" class="tabcontent grounding">
+                <div class="eye-demo" id="demo-grounding2">
+                    <div class="eye-scene">
+                        <img src="images/foveal/webpage2_final.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            <div id="grounding3" class="tabcontent grounding">
+                <div class="eye-demo" id="demo-grounding3">
+                    <div class="eye-scene">
+                        <img src="images/foveal/webpage3_final.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            
+            <!-- Web Action Prediction Tab Section -->
+            <div class="w3-center">
+                <h3>Web Action Prediction</h3>
+            </div>
+            <div class="tabs">
+                <button class="tablinks action active" onclick="openTab(event, 'action1', 'action')">Example 1</button>
+                <button class="tablinks action" onclick="openTab(event, 'action2', 'action')">Example 2</button>
+                <button class="tablinks action" onclick="openTab(event, 'action3', 'action')">Example 3</button>
+            </div>
+            
+            <div id="action1" class="tabcontent action" style="display:block">
+                <div class="eye-demo" id="demo-action1">
+                    <div class="eye-scene">
+                        <img src="images/foveal/image_138_0.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            <div id="action2" class="tabcontent action">
+                <div class="eye-demo" id="demo-action2">
+                    <div class="eye-scene">
+                        <img src="images/foveal/image_436_0.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
+                </div>
+            </div>
+            <div id="action3" class="tabcontent action">
+                <div class="eye-demo" id="demo-action3">
+                    <div class="eye-scene">
+                        <img src="images/foveal/image_338_0.png" class="eye-img">
+                        <!-- fovea div is injected by JS -->
+                    </div>
+            
+                    <pre class="eye-story"></pre>
                 </div>
             </div>
         </div><!-- End Grid -->
@@ -1054,26 +1167,76 @@
 <script>
     /* ---------- tiny helper class ---------- */
     class EyeDemo {
-        constructor(rootSelector, steps) {
+        constructor(rootSelector, steps, instruction, answer) {
             this.root = document.querySelector(rootSelector);
             this.img = this.root.querySelector('.eye-img');
             this.story = this.root.querySelector('.eye-story');
             this.steps = steps;
+            this.instruction = instruction;
+            this.answer = answer;
             this.idx = -1;
             this.timeout = null;
 
-            /* create the fovea */
+            // Restructure the demo container
+            this.root.innerHTML = '';
+            
+            // Create instruction element
+            if (this.instruction) {
+                const instructionElement = document.createElement('div');
+                instructionElement.className = 'eye-instruction';
+                instructionElement.textContent = this.instruction;
+                this.root.appendChild(instructionElement);
+            }
+            
+            // Create scene container (holds image and text side by side)
+            const sceneContainer = document.createElement('div');
+            sceneContainer.className = 'eye-scene-container';
+            this.root.appendChild(sceneContainer);
+            
+            // Create eye scene (image + fovea)
+            const eyeScene = document.createElement('div');
+            eyeScene.className = 'eye-scene';
+            eyeScene.appendChild(this.img.cloneNode(true));
+            sceneContainer.appendChild(eyeScene);
+            
+            // Re-assign img reference to the new clone
+            this.img = eyeScene.querySelector('.eye-img');
+            
+            // Create fovea
             this.fovea = document.createElement('div');
             this.fovea.className = 'eye-fovea';
-            this.root.querySelector('.eye-scene').appendChild(this.fovea);
+            eyeScene.appendChild(this.fovea);
+            
+            // Create story element
+            this.story = document.createElement('pre');
+            this.story.className = 'eye-story';
+            sceneContainer.appendChild(this.story);
 
-            /* build text spans */
+            // Add opening <think> tag
+            const thinkOpenEl = document.createElement('div');
+            thinkOpenEl.textContent = '<think>';
+            this.story.appendChild(thinkOpenEl);
+
+            /* build text spans for steps */
             this.spans = steps.map((s, i) => {
                 const span = document.createElement('span');
                 span.textContent = s.text + ' ';
                 this.story.appendChild(span);
                 return span;
             });
+            
+            // Add closing </think> tag
+            const thinkCloseEl = document.createElement('div');
+            thinkCloseEl.textContent = '</think>';
+            this.story.appendChild(thinkCloseEl);
+            
+            /* Add answer as non-animated text */
+            if (this.answer) {
+                const answerSpan = document.createElement('span');
+                answerSpan.className = 'answer';
+                answerSpan.textContent = this.answer;
+                this.story.appendChild(answerSpan);
+            }
 
             /* run when the image size is known */
             if (this.img.complete) this.start();
@@ -1081,7 +1244,8 @@
         }
 
         start() {
-            this.scale = this.img.clientWidth / 1024;      // model-pixels → css-pixels
+            // naturalWidth = width in the file header, clientWidth = width on screen
+            this.scale = this.img.clientWidth / this.img.naturalWidth;
             this.nextStep();
         }
 
@@ -1095,7 +1259,9 @@
 
             if (this.idx > 0) this.spans[this.idx - 1].classList.remove('active');
             this.spans[this.idx].classList.add('active');
-            this.spans[this.idx].scrollIntoView({ block: 'nearest' });
+
+            // Remove scrollIntoView to prevent automatic scrolling
+            // this.spans[this.idx].scrollIntoView({ block: 'nearest' });
 
             this.timeout = setTimeout(() => this.nextStep(), 1800);  // pace
         }
@@ -1123,69 +1289,345 @@
             this.start();
         }
     }
-
     /* ---------- data for each demo ---------- */
+    // Spatial Reasoning demos
     const STEPS_BASKETS = [
-        { text: "o determine if the baskets are next to the wooden spoons, let's consider their locations. The wooden spoons are placed on the left side of the counter near the stove, as indicated by the position at", x: 70, y: 650 },
-        { text: "Baskets sit farther back near the sink.", x: 620, y: 650 },
-        { text: "A bowl is here, not a basket.", x: 900, y: 650 },
-        { text: "Container with a lid.", x: 200, y: 700 }
+        { text: "To determine if the baskets are next to the wooden spoons, let's consider their locations. The wooden spoons are placed on the left side of the counter near the stove, as indicated by the position at (70, 650). ", x: 70, y: 650 },
+        { text: "The baskets appear to be positioned further back on the counter, closer to the sink area, as seen at (620, 650).", x: 620, y: 650 },
+        { text: "Since the baskets are not in the immediate vicinity of the wooden spoons, we need to check if there's any other possible location.  At (900, 650), there is a bowl, but it is not a basket and is not next to the wooden spoons. ", x: 900, y: 650 },
+        { text: "Now, let's evaluate if the wooden spoons are located near any other items that might be mistaken for baskets. At (200, 700), there is a container with a lid, but it is not a basket. This confirms that the baskets are not next to the wooden spoons.", x: 200, y: 700 }
     ];
+    const INSTRUCTION_BASKETS = "Question: Are the baskets next to the wooden spoons?";
+    const ANSWER_BASKETS = "<answer> No </answer>";
 
-    const STEPS_FRIDGE = [
-        { text: "first step", x: 620, y: 650 },
-        { text: "second step", x: 900, y: 650 }
-    ];
-
-    const STEPS_RVS_FILTER = [
+    const STEPS_SPATIAL2 = [
             {
-                text: "The top of the image shows the OsClass logo.",
-                x: 218,
-                y: 40
+                text: "To determine if the watch is below the bathtub, I need to compare the vertical position of the watch relative to the bathtub. The watch is located at (1050, 350), which is higher up on the shelf compared to the bathtub at (420, 480).",
+                x: 1050,
+                y: 350
             },
             {
-                text: "To achieve the goal, I need to navigate to the appropriate category first. Since there is a clickable area for 'Rvs + campers', clicking this will allow me to filter listings related to RVs and campers.",
-                x: 350,
-                y: 1975
+                text: "The bathtub is further down at the coordinate (420, 480), indicating that the watch is not below it.",
+                x: 420,
+                y: 480
             },
             {
-                text: "Clicking on the 'Rvs + campers' category icon will help narrow down the search results to listings related to RVs and campers. This will allow us to further filter these results based on color and recency.",
-                x: 350,
-                y: 1975
+                text: "Considering if there's any possibility that the watch could be positioned above the bathtub, such as the lower edge of the watch being aligned with the tub's edge at (780, 560).",
+                x: 780,
+                y: 560
             },
             {
-                text: "After clicking on 'Rvs + campers,' I need to locate the section that allows us to filter by color. The current view shows a list of items under this category, including an image of a vehicle.",
-                x: 268,
-                y: 794
+                text: "With consideration that the watch seems indeed higher on the shelf than the tub, its coordinate at (1050, 350) suggests there's no overlapping condition where the watch would be above the tub at (420, 480).",
+                x: 1050,
+                y: 350
             },
             {
-                text: "To find the newest listing in a dark color, I should check if there are any filters available for selecting colors. If not present initially, scrolling may reveal additional options like filters or sorting features that could help achieve our goal.",
-                x: 268,
-                y: 794
+                text: "Given everything confirmed, examining a final place where consideration might diverge - noticing that the watch is located on the very highest shelf near to the tub at coordinate (1050, 340), this confirmation possibly excludes any further possibilities where the watch would be perceived as 'below' the tub.",
+                x: 1050,
+                y: 340
             }
         ];
 
-    /* ---------- instantiate as many as you like ---------- */
-    let demoBasketsInstance;
-    let demoFridgeInstance;
-    let demoRvsInstance;
+    const INSTRUCTION_SPATIAL2 = "Question: Is the watch below the bathtub?";
+    const ANSWER_SPATIAL2 = "<answer> No </answer>";
+
+    const STEPS_SPATIAL3 = [
+            {
+                text: "<think> To determine if the pan can fit above the fridge, I'll need to consider the height of the pan relative to the space available above the fridge. At the point (400, 1100), which is near the top edge of the pan, we can see that the pan covers a significant vertical space.",
+                x: 400,
+                y: 1100
+            },
+            {
+                text: "Let's check another point (750, 800) which represents a central point on the back wall behind the fridge. The available vertical clearance above the top of the fridge is clear here. There is no major obstruction like a pipe or beam that would prevent the pan being placed directly against the upper corner wall above the fridge.",
+                x: 750,
+                y: 800
+            },
+            {
+                text: "Checking the proximity at the point (900, 500), which is near the upper shelf of what appears to be above the refrigerator, shows an empty space that would allow an object like the pan to be placed without obstruction.",
+                x: 900,
+                y: 500
+            },
+            {
+                text: "At the point (650, 1250), we note its compact structure. This reinforces the idea that space at the fridge's top would be suitable for the pan's placement provided no other elements are present. </think>",
+                x: 650,
+                y: 1250
+            }
+        ];
+    const INSTRUCTION_SPATIAL3 = "Question: Can the pan fit above the fridge?";
+    const ANSWER_SPATIAL3 = "<answer> Yes </answer>";
+
+    // Web Grounding demos with instructions and answers
+    const STEPS_GROUNDING1 = [
+            {
+                text: "I need to find the area that monitors calorie expenditure. The orange circle icon at (660, 935) is labeled '12 kcal', which suggests it is related to calorie expenditure.",
+                x: 660,
+                y: 935
+            },
+            {
+                text: "To confirm, I should check the other areas. The green circle icon at (660, 1518) is labeled 'Standing 2 hrs', which is related to physical activity but not directly to calorie expenditure.",
+                x: 660,
+                y: 1518
+            },
+            {
+                text: "The yellow circle icon at (210, 935) is labeled '166 steps', which is related to physical activity but not directly to calorie expenditure.",
+                x: 210,
+                y: 935
+            },
+            {
+                text: "The blue circle icon at (210, 1518) is labeled 'Moving', which is related to physical activity but not directly to calorie expenditure.",
+                x: 210,
+                y: 1518
+            },
+            {
+                text: "The red circle icon at (210, 2100) is labeled 'Blood oxvaen', which is related to blood oxygen levels, not calorie expenditure.",
+                x: 210,
+                y: 2100
+            },
+            {
+                text: "<answer> (660, 1029) </answer>",
+                x: 660,
+                y: 1029
+            }
+        ];
+
+    const INSTRUCTION_GROUNDING1 = "Task: Locate the Monitor calorie expenditure button.";
+    const ANSWER_GROUNDING1 = "";
+
+    const STEPS_GROUNDING2 = [
+            {
+                text: "I will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
+                x: 3540,
+                y: 275
+            },
+            {
+                text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
+                x: 4000,
+                y: 3000
+            },
+            {
+                text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
+                x: 2000,
+                y: 1500
+            },
+            {
+                text: "Next, let's check the left side of the interface, where additional tools or options might be located. (500, 2000) The left side may contain a color picker icon.",
+                x: 500,
+                y: 2000
+            },
+            {
+                text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon. The color picker icon is likely not located in the top left corner.",
+                x: 500,
+                y: 500
+            },
+            {
+                text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)",
+                x: 3500,
+                y: 1500
+            },
+            {
+                text: "I will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
+                x: 3540,
+                y: 275
+            },
+            {
+                text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
+                x: 4000,
+                y: 3000
+            },
+            {
+                text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
+                x: 2000,
+                y: 1500
+            },
+            {
+                text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon.",
+                x: 500,
+                y: 500
+            },
+            {
+                text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)",
+                x: 3500,
+                y: 1500
+            },
+            {
+                text: "<answer> (500, 2000) </answer>",
+                x: 500,
+                y: 2000
+            }
+        ];
+
+    const INSTRUCTION_GROUNDING2 = "Task: Locate the button to show color picker of the image in pycharm.";
+    const ANSWER_GROUNDING2 = "";
+
+    const STEPS_GROUNDING3 = [
+            {
+                text: "I'll check around (1200, 400) to see if there's an edit option. There doesn't appear to be another 'Edit' button at (1200, 400).",
+                x: 1200,
+                y: 400
+            },
+            {
+                text: "To confirm the location, I'll check the top menu bar for any 'Edit' options. I'll look around (1000, 20) to see if there's an edit menu item there. There isn't an 'Edit' option in the top menu bar at (1000, 20).",
+                x: 1000,
+                y: 20
+            },
+            {
+                text: "To ensure there isn't another 'Edit' button in the toolbar, I'll check the toolbar area. I'll look around (1500, 300) to see if there's an edit button there. There isn't an 'Edit' button in the toolbar at (1500, 300).",
+                x: 1500,
+                y: 300
+            },
+            {
+                text: "To ensure there isn't an 'Edit' button in the sidebar, I'll check the sidebar area. I'll look around (500, 500) to see if there's an edit button there. There isn't an 'Edit' button in the sidebar at (500, 500).",
+                x: 500,
+                y: 500
+            },
+            {
+                text: "I'll now check the top left corner of the window for any additional 'Edit' buttons. I'll look around (100, 100) to see if there's an edit button there. There isn't an 'Edit' button in the top left corner at (100, 100).",
+                x: 100,
+                y: 100
+            },
+            {
+                text: "I'll now check the bottom right corner of the window for any additional 'Edit' buttons. I'll look around (1800, 750) to see if there's an edit button there. There isn't an 'Edit' button in the bottom right corner at (1800, 750).",
+                x: 1800,
+                y: 750
+            },
+            {
+                text: "To confirm the location, I'll check the central area of the window for any 'Edit' buttons. I'll look around (750, 400) to see if there's an edit button there. There isn't an 'Edit' button in the central area at (750, 400).",
+                x: 750,
+                y: 400
+            },
+            {
+                text: "I'll check the coordinates around (1315, 615). The 'Edit' button is indeed located at (1315, 615). This button is part of the user interface for managing user objects and likely allows for editing the selected object.",
+                x: 1315,
+                y: 615
+            },
+            {
+                text: "Predicted Answer: (1315, 615)",
+                x: 1315,
+                y: 615
+            }
+        ];
+
+
+    const INSTRUCTION_GROUNDING3 = "Task: Start slide show from current slide.";
+    const ANSWER_GROUNDING3 = "";
+
+    // Web Action Prediction demos
+    const STEPS_ACTION1 = [
+            {
+                text: "<think> The task is to identify the username associated with the image containing the largest proportion of the moon. Visually inspecting the posts, the image at coordinates (350, 215) appears to have a significantly larger portion of the moon compared to others.",
+                x: 350,
+                y: 215
+            },
+            {
+                text: "The post below it mentions working with 380 RAW images of the moon, suggesting a substantial focus on lunar imagery. Clicking on this post might reveal more details about the poster and their work related to moon images (200, 1030).",
+                x: 200,
+                y: 1030
+            },
+            {
+                text: "To determine if my assessment was correct regarding the post with InternationalBack472's submission having a large proportion of the moon, I need to inspect further details about their post. The username 'InternationalBack472' is displayed next to their post at (350, 215).",
+                x: 350,
+                y: 215
+            },
+            {
+                text: "However, I should check if there are any other posts that might have a larger proportion of the moon. The image at coordinates (200, 1595) also features a significant portion of the moon but seems less prominent than another image in this thread.",
+                x: 200,
+                y: 1595
+            },
+            {
+                text: "This confirms that InternationalBack472's post indeed has a large proportion of the moon and they are likely associated with it (350, 215). </think>",
+                x: 350,
+                y: 215
+            }
+        ];
+    const INSTRUCTION_ACTION1 = "Instruction: Consider all post in this page. What is the username of the user that posted the picture where the moon takes up the largest proportion of the image?";
+    const ANSWER_ACTION1 = "<answer> stop [InternationalBack472] </answer>";
+
+    const STEPS_ACTION2 = [
+            {
+                text: "<think> The product is yellow, so the next step is likely to add it to the cart. The 'Add to Cart' button (896, 752) seems like the appropriate control for this action.",
+                x: 896,
+                y: 752
+            },
+            {
+                text: "Since the product is yellow and visible in the main image at (380, 810), I need to confirm if there are any additional actions needed.",
+                x: 380,
+                y: 810
+            },
+            {
+                text: "The size options suggest that selecting the correct size might be necessary before adding to cart. However, the main focus remains on adding it to cart.",
+                x: 896,
+                y: 652
+            },
+            {
+                text: "The product description section at (594, 1760) confirms that this is indeed a yellow sunflower painting by Van Gogh. While reviewing details is good practice, it doesn't impact our immediate goal of adding it to the cart.",
+                x: 594,
+                y: 1760
+            },
+            {
+                text: "The 'Add to Cart' button at (924, 763) is clearly visible and relevant for completing our objective of adding this yellow painting to our cart. </think>",
+                x: 924,
+                y: 763
+            }
+        ];
+    const INSTRUCTION_ACTION2 = "Instruction: Add this to my cart if it is yellow.";
+    const ANSWER_ACTION2 = "<answer> click [36] </answer>";
+
+    const STEPS_ACTION3 = [
+            {
+                text: "<think> The OBJECTIVE is to determine the price range of all red vehicles. At (400, 340), there is a red Ford Focus SEL listed for $7800.",
+                x: 500,
+                y: 440
+            },
+            {
+                text: "At (950, 415), another red vehicle, a Ford Explorer Sport, is priced at $8400.",
+                x: 950,
+                y: 415
+            },
+            {
+                text: "To find more red vehicles, I should check the listings further. At (220, 715), there's a link to refine the category to 'Cars + trucks,' which might help filter results better and find additional red vehicles.",
+                x: 220,
+                y: 715
+            },
+            {
+                text: "The OBJECTIVE requires identifying all red vehicles and their prices. At (525, 965), there's a red Volkswagen Beetle listed for $9999; this falls within our target group. This point helps confirm we're on the right track and ensures we're capturing various price points among red vehicles. </think>",
+                x: 525,
+                y: 965
+            }
+        ];
+    const INSTRUCTION_ACTION3 = "Instruction: What is the price range of all the red vehicles on this page?";
+    const ANSWER_ACTION3 = "<answer> stop [The red vehicles on this page range in price from $7,800 to $9,999] </answer>";
+
+    /* ---------- instantiate demos ---------- */
+    let demoInstances = {};
+
     // Create instances when page loads
     document.addEventListener('DOMContentLoaded', function () {
-        demoBasketsInstance = new EyeDemo('#demo-baskets', STEPS_BASKETS);
-        demoFridgeInstance = new EyeDemo('#demo-fridge', STEPS_FRIDGE);
-        demoRvsInstance = new EyeDemo('#demo-rvs', STEPS_RVS_FILTER);
+        // Spatial reasoning demos
+        demoInstances.spatial1 = new EyeDemo('#demo-baskets', STEPS_BASKETS, INSTRUCTION_BASKETS, ANSWER_BASKETS);
+        demoInstances.spatial2 = new EyeDemo('#demo-spatial2', STEPS_SPATIAL2, INSTRUCTION_SPATIAL2, ANSWER_SPATIAL2);
+        demoInstances.spatial3 = new EyeDemo('#demo-spatial3', STEPS_SPATIAL3, INSTRUCTION_SPATIAL3, ANSWER_SPATIAL3);
+
+        // Web grounding demos
+        demoInstances.grounding1 = new EyeDemo('#demo-grounding1', STEPS_GROUNDING1, INSTRUCTION_GROUNDING1, ANSWER_GROUNDING1);
+        demoInstances.grounding2 = new EyeDemo('#demo-grounding2', STEPS_GROUNDING2, INSTRUCTION_GROUNDING2, ANSWER_GROUNDING2);
+        demoInstances.grounding3 = new EyeDemo('#demo-grounding3', STEPS_GROUNDING3, INSTRUCTION_GROUNDING3, ANSWER_GROUNDING3);
+        
+        // Web action prediction demos
+        demoInstances.action1 = new EyeDemo('#demo-action1', STEPS_ACTION1, INSTRUCTION_ACTION1, ANSWER_ACTION1);
+        demoInstances.action2 = new EyeDemo('#demo-action2', STEPS_ACTION2, INSTRUCTION_ACTION2, ANSWER_ACTION2);
+        demoInstances.action3 = new EyeDemo('#demo-action3', STEPS_ACTION3, INSTRUCTION_ACTION3, ANSWER_ACTION3);
     });
 
     /* ---------- Tab switching function ---------- */
-    function openTab(evt, tabName) {
-        // Hide all tab content
-        var tabcontents = document.getElementsByClassName("tabcontent");
+    function openTab(evt, tabName, tabGroup) {
+        // Hide all tab content in the current group
+        var tabcontents = document.getElementsByClassName("tabcontent " + tabGroup);
         for (var i = 0; i < tabcontents.length; i++) {
             tabcontents[i].style.display = "none";
         }
 
-        // Remove "active" class from all tab buttons
-        var tablinks = document.getElementsByClassName("tablinks");
+        // Remove "active" class from all tab buttons in the current group
+        var tablinks = document.getElementsByClassName("tablinks " + tabGroup);
         for (var i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
@@ -1197,12 +1639,8 @@
         evt.currentTarget.className += " active";
 
         // Reset the appropriate demo when switching tabs
-        if (tabName === 'ex1' && demoBasketsInstance) {
-            demoBasketsInstance.reset();
-        } else if (tabName === 'ex2' && demoFridgeInstance) {
-            demoFridgeInstance.reset();
-        } else if (tabName === 'ex3' && demoRvsInstance) {
-            demoRvsInstance.reset();
+        if (demoInstances[tabName]) {
+            demoInstances[tabName].reset();
         }
     }
 </script>
