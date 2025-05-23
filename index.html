@@ -52,8 +52,7 @@
         }
     </style>
     <meta charset="UTF-8">
-    <meta name="description"
-        content="Grounded Reinforcement Learning for Visual Reasoning">
+    <meta name="description" content="Grounded Reinforcement Learning for Visual Reasoning">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
@@ -138,23 +137,24 @@
         }
 
         .video-responsive {
-        text-align: center;
+            text-align: center;
         }
 
         @media screen and (max-width: 560px) {
-        .video-responsive {
-            overflow: hidden;
-            padding-bottom: 56.25%;
-            position: relative;
-            height: 0;
-        }
-        .video-responsive iframe {
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
+            .video-responsive {
+                overflow: hidden;
+                padding-bottom: 56.25%;
+                position: relative;
+                height: 0;
+            }
+
+            .video-responsive iframe {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
         }
 
         .log {
@@ -342,7 +342,6 @@
             padding-right: 1px;
             padding-left: 6px;
         }
-
     </style>
 
     <!-- Paper button -->
@@ -363,7 +362,7 @@
             font-weight: 500;
             color: black;
         }
-    
+
         .btn-paper-helper-x:hover {
             transition: 0.75s ease-in-out;
             background: #8bb2ff1e;
@@ -371,7 +370,7 @@
             font-weight: 500;
             color: black;
         }
-    
+
         .vertical-center-paper-helper-x {
             height: 80%;
             position: relative;
@@ -473,41 +472,41 @@
         }
     </style>
 
-<style>
-    .btn-twitter {
-        width: 100px;
-        height: 35px;
-        cursor: pointer;
-        border-radius: 25px;
-        background: transparent;
-        border: 2px solid #91C9FF;
-        outline: none;
-        transition: 1s ease-in-out;
-        text-decoration: none;
-        align-items: center;
-        display: flex;
-        text-align: center;
-        font-weight: 500;
-        color: black;
-    }
+    <style>
+        .btn-twitter {
+            width: 100px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
 
-    .btn-twitter:hover {
-        transition: 0.75s ease-in-out;
-        background: #8bb2ff1e;
-        text-decoration: none;
-        font-weight: 500;
-    }
+        .btn-twitter:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    .vertical-center-twitter {
-        height: 80%;
-        position: relative;
-        /* top: 0px;
+        .vertical-center-twitter {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
         left: 0px;
         float: left; */
-        padding-right: 8px;
-        padding-left: 10px;
-    }
-</style>
+            padding-right: 8px;
+            padding-left: 10px;
+        }
+    </style>
 
     <!-- Interactive button -->
     <style>
@@ -650,16 +649,17 @@
             color: white;
         }
 
-        
+
 
         .column-left,
         .column-right {
-        width: 50%;
+            width: 50%;
         }
 
         .container {
-        display: flex;
-        padding: 0px; /* Adjust as needed */
+            display: flex;
+            padding: 0px;
+            /* Adjust as needed */
         }
 
         .columns {
@@ -667,14 +667,18 @@
         }
 
         .video-column {
-            padding: 0; /* Remove padding */
+            padding: 0;
+            /* Remove padding */
         }
+
         .video-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* this will center the videos */
+            justify-content: center;
+            /* this will center the videos */
         }
-/* 
+
+        /* 
         .is-one-third-desktop {
             flex: 0 1 calc(32.333% - 4px); 
             margin: 2px; 
@@ -697,29 +701,38 @@
             white-space: pre-wrap;
             overflow: hidden;
         }
+
         .text-segment {
             display: inline;
         }
 
         #layout {
-            width: 100%; /* Ensures the container div spans the full width */
-            overflow: hidden; /* Clears the float, containing the floated children */
+            width: 100%;
+            /* Ensures the container div spans the full width */
+            overflow: hidden;
+            /* Clears the float, containing the floated children */
         }
 
         #textBlock {
             width: 40%;
-            float: left; /* Aligns this div to the left */
-            height: 600px; /* Match the height with the container for uniformity */
-            background-color: #f8f8f8; /* Just a sample color for visibility */
+            float: left;
+            /* Aligns this div to the left */
+            height: 600px;
+            /* Match the height with the container for uniformity */
+            background-color: #f8f8f8;
+            /* Just a sample color for visibility */
             padding: 10px;
             box-sizing: border-box;
         }
 
         #graphic {
             width: 20%;
-            float: left; /* Centers between text and container */
-            height: 600px; /* Match the height with the container */
-            background-color: #ccc; /* Just a sample color for visibility */
+            float: left;
+            /* Centers between text and container */
+            height: 600px;
+            /* Match the height with the container */
+            background-color: #ccc;
+            /* Just a sample color for visibility */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -727,10 +740,14 @@
 
         #container {
             width: 40%;
-            float: left; /* Aligns this div to the left */
-            height: 600px; /* Fixed height for scrollable area */
-            overflow-y: auto; /* Enables vertical scrolling */
-            background-color: #fff; /* Background color for visibility */
+            float: left;
+            /* Aligns this div to the left */
+            height: 600px;
+            /* Fixed height for scrollable area */
+            overflow-y: auto;
+            /* Enables vertical scrolling */
+            background-color: #fff;
+            /* Background color for visibility */
             padding: 10px;
             box-sizing: border-box;
         }
@@ -770,7 +787,7 @@
             overflow: hidden;
             background-color: #f1f1f1;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         /* Style the buttons inside the tab */
@@ -783,7 +800,8 @@
             padding: 14px 16px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 17px;
-            width: 20%; /* Equal width tabs */
+            width: 20%;
+            /* Equal width tabs */
         }
 
         /* Change background color of tabs on hover */
@@ -804,38 +822,49 @@
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
         .tabcontent {
-            display: none; /* Hide all tab content by default */
+            display: none;
+            /* Hide all tab content by default */
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
 
         @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
-        
+
         /* Tab content (optional: hide initially with display:none) */
         .tabcontent_vwa {
             display: none;
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
         .tabcontent_vwa {
-            display: none; /* Hide all tab content by default */
+            display: none;
+            /* Hide all tab content by default */
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
         /* Style the buttons inside the tab */
@@ -848,7 +877,8 @@
             padding: 14px 16px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 17px;
-            width: 20%; /* Equal width tabs */
+            width: 20%;
+            /* Equal width tabs */
         }
 
         /* Change background color of tabs on hover */
@@ -864,10 +894,10 @@
         }
 
         .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
         }
 
         /* Tab content (optional: hide initially with display:none) */
@@ -876,15 +906,18 @@
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
         .tabcontent_ego {
-            display: none; /* Hide all tab content by default */
+            display: none;
+            /* Hide all tab content by default */
             padding: 16px;
             border: 1px solid #ccc;
             border-top: none;
-            animation: fadeIn 0.5s; /* Fading effect */
+            animation: fadeIn 0.5s;
+            /* Fading effect */
         }
 
         /* Style the buttons inside the tab */
@@ -897,7 +930,8 @@
             padding: 14px 16px;
             transition: background-color 0.3s, color 0.3s;
             font-size: 17px;
-            width: 20%; /* Equal width tabs */
+            width: 20%;
+            /* Equal width tabs */
         }
 
         /* Change background color of tabs on hover */
@@ -918,48 +952,72 @@
             flex-direction: column;
             align-items: center;
         }
+
         .names-row {
             display: flex;
             justify-content: center;
-            gap: 30px; /* Adjust the gap between names */
-            margin-bottom: 10px; /* Adjust the spacing between rows */
+            gap: 30px;
+            /* Adjust the gap between names */
+            margin-bottom: 10px;
+            /* Adjust the spacing between rows */
         }
+
         .names-row a {
             text-decoration: none;
-            color: #1a73e8; /* Adjust the link color */
-            font-size: 22px; /* Specify the font size */
+            color: #1a73e8;
+            /* Adjust the link color */
+            font-size: 22px;
+            /* Specify the font size */
         }
+
         .institution-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px; /* Adjust the gap between logos and text */
+            gap: 15px;
+            /* Adjust the gap between logos and text */
             margin-top: 10px;
         }
+
         .highlighted-text {
-            font-size: 1.2em; Increase font size
+            font-size: 1.2em;
+            Increase font size
             /* font-weight: bold; Make text bold */
-            padding: 10px; /* Add padding */
-            border-radius: 5px; /* Rounded corners */
-            display: inline-block; /* Ensure padding and border apply correctly */
+            padding: 10px;
+            /* Add padding */
+            border-radius: 5px;
+            /* Rounded corners */
+            display: inline-block;
+            /* Ensure padding and border apply correctly */
         }
 
         /* ----- live-trace component ----- */
-        .eye-demo            {display:flex;flex-direction:column;gap:1rem;margin:2rem 0;}
+        .eye-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
         .eye-scene-container {
             display: flex;
             gap: 1.5rem;
-            align-items: center; /* Change this to center items vertically */
-            background-color: white; /* Ensure background is white */
+            align-items: center;
+            /* Change this to center items vertically */
+            background-color: white;
+            /* Ensure background is white */
         }
+
         .eye-scene {
             position: relative;
             overflow: hidden;
-            background-color: white; /* Change to white instead of transparent */
+            background-color: white;
+            /* Change to white instead of transparent */
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .eye-img {
             max-width: 380px;
             width: 100%;
@@ -967,24 +1025,159 @@
             object-fit: contain;
             margin-bottom: 0;
         }
-        .eye-story           {flex:1;white-space:pre-wrap;line-height:1.35;}
-        .eye-story span      {transition:background .25s;}
-        .eye-story .active   {background:#ffe666;}
-        .eye-story .answer   {margin-top:1rem;display:block;}
 
-        .eye-fovea{          /* injected overlay */
-        position:absolute;
-        width:110px;height:110px;
-        border-radius:50%;
-        pointer-events:none;
-        box-shadow:0 0 0 9999px rgba(0,0,0,.55);  /* blackout, clipped by overflow */
-        outline:3px solid #4da3ff;
-        transition:left .6s ease, top .6s ease;
+        .eye-story {
+            flex: 1;
+            white-space: pre-wrap;
+            line-height: 1.35;
+        }
+
+        .eye-story span {
+            transition: background .25s;
+        }
+
+        .eye-story .active {
+            background: #ffe666;
+        }
+
+        .eye-story .answer {
+            margin-top: 1rem;
+            display: block;
+        }
+
+        .eye-fovea {
+            /* injected overlay */
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, .55);
+            /* blackout, clipped by overflow */
+            outline: 3px solid #4da3ff;
+            transition: left .6s ease, top .6s ease;
+        }
+
+        /* Styles for instruction text */
+        .eye-instruction {
+            background-color: #f5f5f5;
+            border-left: 4px solid #276FBF;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-weight: 500;
+            color: #333;
+            line-height: 1.4;
+        }
+    </style>
+    <style>
+        /* Slider container */
+        .slider-container {
+            position: relative;
+            margin-bottom: 80px;
+            /* Add vertical spacing between sections */
+        }
+
+        /* Hide all slides by default */
+        .slide {
+            display: none;
+        }
+
+        /* Show the active slide */
+        .slide.active {
+            display: block;
+        }
+
+        /* Dots/bullets/indicators */
+        .dots-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fade animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        .slider-container .slide.fade {
+        /* override bootstrap */
+        opacity: 1 !important;
+
+        /* re-define your animation to keep the last frame */
+        animation: fade 1.5s forwards;
+        }
+
+        /* Make sure your keyframes are still there: */
+        @keyframes fade {
+        from { opacity: 0.4; }
+        to   { opacity: 1;   }
+        }
+
+        /* @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        } */
+    </style>
+    <style>
+        /* Slider arrows */
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
         
-        /* Styles for instruction - remove explicit color to inherit */
-        .eye-instruction {
-            margin-bottom: 10px;
+        .arrow {
+            cursor: pointer;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px; /* Adjusted to center text vertically */
+            font-size: 24px;
+            margin: 0 10px;
+            margin-top: -2px; /* Move arrows up slightly */
+            color: #000000;
+            background: transparent;
+            transition: 0.3s ease-in-out;
+            display: flex;          /* Use flexbox for better centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
+        }
+        
+        .arrow:hover {
+            opacity: 0.5;  /* Change to grey by reducing opacity */
+            transition: opacity 0.3s ease;
+        }
+        
+        .dots-container {
+            display: inline-flex; /* Changed to inline-flex */
+            align-items: center;  /* Vertically center dots */
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -1008,7 +1201,8 @@
                     <br>
 
                     <div class="project-links">
-                        <a href="https://anonymous.4open.science/r/VLM-search-7721" target="_blank" class="btn-code" role="button">
+                        <a href="https://anonymous.4open.science/r/VLM-search-7721" target="_blank" class="btn-code"
+                            role="button">
                             <img src="images/code.png" class="vertical-center-code"> Anonymous Code
                         </a>
                     </div>
@@ -1019,147 +1213,198 @@
                     <div class="w3-center">
                         <h2>Abstract</h2>
                     </div>
-                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language models in tasks such as
-                        mathematics and coding, visual reasoning introduces added complexity by requiring models to direct visual attention,
-                        interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce <strong>ViGoRL</strong>
-                        (Visually Grounded Reinforcement Learning), a vision-language model trained with RL to explicitly anchor each
-                        reasoning step to specific visual coordinates. Inspired by human visual decision-making, <strong>ViGoRL</strong>
-                        learns to produce spatially grounded reasoning traces, guiding visual attention to task-relevant regions at each
-                        step. Across a diverse set of visual reasoning benchmarks—including SAT-2 and BLINK for spatial reasoning, and
-                        ScreenSpot and VisualWebArena for web-based grounding—<strong>ViGoRL</strong> consistently outperforms both
-                        supervised fine-tuning and conventional RL baselines that lack explicit grounding mechanisms. Incorporating
-                        multi-turn RL with visual feedback further improves <strong>ViGoRL</strong>’s performance on localizing small
-                        elements. Additionally, we find that grounding amplifies other visual behaviors such as region exploration, visual
-                        subgoal setting, and verification. Finally, human evaluations show that the model’s visual references are not only
-                        spatially accurate but also helpful for understanding model reasoning steps. Our results show that visually grounded
+                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language
+                        models in tasks such as
+                        mathematics and coding, visual reasoning introduces added complexity by requiring models to
+                        direct visual attention,
+                        interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce
+                        <strong>ViGoRL</strong>
+                        (Visually Grounded Reinforcement Learning), a vision-language model trained with RL to
+                        explicitly anchor each
+                        reasoning step to specific visual coordinates. Inspired by human visual decision-making,
+                        <strong>ViGoRL</strong>
+                        learns to produce spatially grounded reasoning traces, guiding visual attention to task-relevant
+                        regions at each
+                        step. Across a diverse set of visual reasoning benchmarks—including SAT-2 and BLINK for spatial
+                        reasoning, and
+                        ScreenSpot and VisualWebArena for web-based grounding—<strong>ViGoRL</strong> consistently
+                        outperforms both
+                        supervised fine-tuning and conventional RL baselines that lack explicit grounding mechanisms.
+                        Incorporating
+                        multi-turn RL with visual feedback further improves <strong>ViGoRL</strong>'s performance on
+                        localizing small
+                        elements. Additionally, we find that grounding amplifies other visual behaviors such as region
+                        exploration, visual
+                        subgoal setting, and verification. Finally, human evaluations show that the model's visual
+                        references are not only
+                        spatially accurate but also helpful for understanding model reasoning steps. Our results show
+                        that visually grounded
                         RL is a strong paradigm for imbuing models with general-purpose visual reasoning.</p>
                     <hr>
                 </div>
 
             </div><!-- End paper container -->
+            <div class="w3-center">
+                <h2>ViGoRL Model Outputs</h2>
+                <hr style="border-top: 1px #000000 !important; width: 50%; margin: 20px auto 40px;">
+            </div>
 
-            <!-- Spatial Reasoning Tab Section -->
-            <div class="w3-center">
-                <h3>Spatial Reasoning</h3>
-            </div>
-            <div class="tabs">
-                <button class="tablinks spatial active" onclick="openTab(event, 'spatial1', 'spatial')">Example 1</button>
-                <button class="tablinks spatial" onclick="openTab(event, 'spatial2', 'spatial')">Example 2</button>
-                <button class="tablinks spatial" onclick="openTab(event, 'spatial3', 'spatial')">Example 3</button>
-            </div>
-            
-            <div id="spatial1" class="tabcontent spatial" style="display:block">
-                <div class="eye-demo" id="demo-baskets">
-                    <div class="eye-scene">
-                        <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
-                        <!-- fovea div is injected by JS -->
+            <!-- Spatial Reasoning Slider Section -->
+            <div class="slider-container">
+                <div class="w3-center">
+                    <h3>Spatial Reasoning</h3>
+                </div>
+
+                <!-- Slides -->
+                <div class="slide spatial fade active" id="spatial1">
+                    <div class="eye-demo" id="demo-baskets">
+                        <div class="eye-scene">
+                            <img src="images/foveal/white-kitchen-tile-floor-663e73179c3c4.jpg" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre> <!-- text is injected by JS -->
                     </div>
-            
-                    <pre class="eye-story"></pre> <!-- text is injected by JS -->
+                </div>
+
+                <div class="slide spatial fade" id="spatial2">
+                    <div class="eye-demo" id="demo-spatial2">
+                        <div class="eye-scene">
+                            <img src="images/foveal/image_347_resized.jpg" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre> <!-- text is injected by JS -->
+                    </div>
+                </div>
+
+                <div class="slide spatial fade" id="spatial3">
+                    <div class="eye-demo" id="demo-spatial3">
+                        <div class="eye-scene">
+                            <img src="images/foveal/image_169.jpg" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
+                    </div>
+                </div>
+
+                <!-- Replace the dots-container with slider-nav -->
+                <div class="slider-nav">
+                    <div class="arrow spatial-prev" onclick="navigateSlide('spatial', -1)">&#8249;</div>
+                    <div class="dots-container">
+                        <span class="dot spatial active" onclick="showSlide('spatial', 0)"></span>
+                        <span class="dot spatial" onclick="showSlide('spatial', 1)"></span>
+                        <span class="dot spatial" onclick="showSlide('spatial', 2)"></span>
+                    </div>
+                    <div class="arrow spatial-next" onclick="navigateSlide('spatial', 1)">&#8250;</div>
                 </div>
             </div>
-            <div id="spatial2" class="tabcontent spatial">
-                <div class="eye-demo" id="demo-spatial2">
-                    <div class="eye-scene">
-                        <img src="images/foveal/image_347_resized.jpg" class="eye-img">
-                        <!-- fovea div is injected by JS -->
+
+            <!-- Web Action Prediction Slider Section -->
+            <div class="slider-container">
+                <div class="w3-center">
+                    <h3>Web Action Prediction</h3>
+                </div>
+
+                <!-- Slides -->
+                <div class="slide action fade active" id="action1">
+                    <div class="eye-demo" id="demo-action1">
+                        <div class="eye-scene">
+                            <img src="images/foveal/image_436_0.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
                     </div>
-            
-                    <pre class="eye-story"></pre> <!-- text is injected by JS -->
+                </div>
+
+                <div class="slide action fade" id="action2">
+                    <div class="eye-demo" id="demo-action2">
+                        <div class="eye-scene">
+                            <img src="images/foveal/image_138_0.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
+                    </div>
+                </div>
+
+                <div class="slide action fade" id="action3">
+                    <div class="eye-demo" id="demo-action3">
+                        <div class="eye-scene">
+                            <img src="images/foveal/image_338_0.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
+                    </div>
+                </div>
+
+                <!-- Replace the dots-container with slider-nav -->
+                <div class="slider-nav">
+                    <div class="arrow action-prev" onclick="navigateSlide('action', -1)">&#8249;</div>
+                    <div class="dots-container">
+                        <span class="dot action active" onclick="showSlide('action', 0)"></span>
+                        <span class="dot action" onclick="showSlide('action', 1)"></span>
+                        <span class="dot action" onclick="showSlide('action', 2)"></span>
+                    </div>
+                    <div class="arrow action-next" onclick="navigateSlide('action', 1)">&#8250;</div>
                 </div>
             </div>
-            <div id="spatial3" class="tabcontent spatial">
-                <div class="eye-demo" id="demo-spatial3">
-                    <div class="eye-scene">
-                        <img src="images/foveal/image_169.jpg" class="eye-img">
-                        <!-- fovea div is injected by JS -->
+
+            <!-- Web Grounding Slider Section -->
+            <div class="slider-container">
+                <div class="w3-center">
+                    <h3>Web Grounding</h3>
+                </div>
+
+                <!-- Slides -->
+                <div class="slide grounding fade active" id="grounding1">
+                    <div class="eye-demo" id="demo-grounding1">
+                        <div class="eye-scene">
+                            <img src="images/foveal/webpage1_final.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
                     </div>
-            
-                    <pre class="eye-story"></pre>
+                </div>
+
+                <div class="slide grounding fade" id="grounding2">
+                    <div class="eye-demo" id="demo-grounding2">
+                        <div class="eye-scene">
+                            <img src="images/foveal/webpage2_final.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
+                    </div>
+                </div>
+
+                <div class="slide grounding fade" id="grounding3">
+                    <div class="eye-demo" id="demo-grounding3">
+                        <div class="eye-scene">
+                            <img src="images/foveal/webpage3_final.png" class="eye-img">
+                            <!-- fovea div is injected by JS -->
+                        </div>
+
+                        <pre class="eye-story"></pre>
+                    </div>
+                </div>
+
+                <!-- Replace the dots-container with slider-nav -->
+                <div class="slider-nav">
+                    <div class="arrow grounding-prev" onclick="navigateSlide('grounding', -1)">&#8249;</div>
+                    <div class="dots-container">
+                        <span class="dot grounding active" onclick="showSlide('grounding', 0)"></span>
+                        <span class="dot grounding" onclick="showSlide('grounding', 1)"></span>
+                        <span class="dot grounding" onclick="showSlide('grounding', 2)"></span>
+                    </div>
+                    <div class="arrow grounding-next" onclick="navigateSlide('grounding', 1)">&#8250;</div>
                 </div>
             </div>
-            
-            <!-- Web Grounding Tab Section -->
-            <div class="w3-center">
-                <h3>Web Grounding</h3>
-            </div>
-            <div class="tabs">
-                <button class="tablinks grounding active" onclick="openTab(event, 'grounding1', 'grounding')">Example 1</button>
-                <button class="tablinks grounding" onclick="openTab(event, 'grounding2', 'grounding')">Example 2</button>
-                <button class="tablinks grounding" onclick="openTab(event, 'grounding3', 'grounding')">Example 3</button>
-            </div>
-            
-            <div id="grounding1" class="tabcontent grounding" style="display:block">
-                <div class="eye-demo" id="demo-grounding1">
-                    <div class="eye-scene">
-                        <img src="images/foveal/webpage1_final.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
-            <div id="grounding2" class="tabcontent grounding">
-                <div class="eye-demo" id="demo-grounding2">
-                    <div class="eye-scene">
-                        <img src="images/foveal/webpage2_final.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
-            <div id="grounding3" class="tabcontent grounding">
-                <div class="eye-demo" id="demo-grounding3">
-                    <div class="eye-scene">
-                        <img src="images/foveal/webpage3_final.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
-            
-            <!-- Web Action Prediction Tab Section -->
-            <div class="w3-center">
-                <h3>Web Action Prediction</h3>
-            </div>
-            <div class="tabs">
-                <button class="tablinks action active" onclick="openTab(event, 'action1', 'action')">Example 1</button>
-                <button class="tablinks action" onclick="openTab(event, 'action2', 'action')">Example 2</button>
-                <button class="tablinks action" onclick="openTab(event, 'action3', 'action')">Example 3</button>
-            </div>
-            
-            <div id="action1" class="tabcontent action" style="display:block">
-                <div class="eye-demo" id="demo-action1">
-                    <div class="eye-scene">
-                        <img src="images/foveal/image_138_0.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
-            <div id="action2" class="tabcontent action">
-                <div class="eye-demo" id="demo-action2">
-                    <div class="eye-scene">
-                        <img src="images/foveal/image_436_0.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
-            <div id="action3" class="tabcontent action">
-                <div class="eye-demo" id="demo-action3">
-                    <div class="eye-scene">
-                        <img src="images/foveal/image_338_0.png" class="eye-img">
-                        <!-- fovea div is injected by JS -->
-                    </div>
-            
-                    <pre class="eye-story"></pre>
-                </div>
-            </div>
+
         </div><!-- End Grid -->
     </div><!-- End Page Container -->
 </body>
@@ -1167,7 +1412,7 @@
 <script>
     /* ---------- tiny helper class ---------- */
     class EyeDemo {
-        constructor(rootSelector, steps, instruction, answer) {
+        constructor(rootSelector, steps, instruction, answer, removeThinkTags = false) {
             this.root = document.querySelector(rootSelector);
             this.img = this.root.querySelector('.eye-img');
             this.story = this.root.querySelector('.eye-story');
@@ -1176,10 +1421,11 @@
             this.answer = answer;
             this.idx = -1;
             this.timeout = null;
+            this.removeThinkTags = removeThinkTags;
 
             // Restructure the demo container
             this.root.innerHTML = '';
-            
+
             // Create instruction element
             if (this.instruction) {
                 const instructionElement = document.createElement('div');
@@ -1187,49 +1433,61 @@
                 instructionElement.textContent = this.instruction;
                 this.root.appendChild(instructionElement);
             }
-            
+
             // Create scene container (holds image and text side by side)
             const sceneContainer = document.createElement('div');
             sceneContainer.className = 'eye-scene-container';
             this.root.appendChild(sceneContainer);
-            
+
             // Create eye scene (image + fovea)
             const eyeScene = document.createElement('div');
             eyeScene.className = 'eye-scene';
             eyeScene.appendChild(this.img.cloneNode(true));
             sceneContainer.appendChild(eyeScene);
-            
+
             // Re-assign img reference to the new clone
             this.img = eyeScene.querySelector('.eye-img');
-            
+
             // Create fovea
             this.fovea = document.createElement('div');
             this.fovea.className = 'eye-fovea';
             eyeScene.appendChild(this.fovea);
-            
+
             // Create story element
             this.story = document.createElement('pre');
             this.story.className = 'eye-story';
             sceneContainer.appendChild(this.story);
 
-            // Add opening <think> tag
-            const thinkOpenEl = document.createElement('div');
-            thinkOpenEl.textContent = '<think>';
-            this.story.appendChild(thinkOpenEl);
+            // Add opening <think> tag if not removing tags
+            if (!this.removeThinkTags) {
+                const thinkOpenEl = document.createElement('div');
+                thinkOpenEl.textContent = '<think>';
+                this.story.appendChild(thinkOpenEl);
+            }
 
             /* build text spans for steps */
             this.spans = steps.map((s, i) => {
                 const span = document.createElement('span');
-                span.textContent = s.text + ' ';
+                let textContent = s.text;
+
+                // // Handle think tags if needed
+                // if (this.removeThinkTags) {
+                //     // Safely remove any <think> and </think> tags
+                //     textContent = textContent.replace(/<\/?think>/g, '');
+                // }
+
+                span.textContent = textContent + ' ';
                 this.story.appendChild(span);
                 return span;
             });
-            
-            // Add closing </think> tag
-            const thinkCloseEl = document.createElement('div');
-            thinkCloseEl.textContent = '</think>';
-            this.story.appendChild(thinkCloseEl);
-            
+
+            // Add closing </think> tag if not removing tags
+            if (!this.removeThinkTags) {
+                const thinkCloseEl = document.createElement('div');
+                thinkCloseEl.textContent = '</think>';
+                this.story.appendChild(thinkCloseEl);
+            }
+
             /* Add answer as non-animated text */
             if (this.answer) {
                 const answerSpan = document.createElement('span');
@@ -1250,7 +1508,19 @@
         }
 
         nextStep() {
-            if (++this.idx >= this.steps.length) return;
+            if (++this.idx >= this.steps.length) {
+                // Reset index to start over
+                this.idx = -1;
+
+                // Reset all spans (remove highlighting)
+                this.spans.forEach(span => {
+                    span.classList.remove('active');
+                });
+
+                // Call nextStep again after a short delay
+                this.timeout = setTimeout(() => this.nextStep(), 1000);  // slight pause before restarting
+                return;
+            }
 
             const { x, y } = this.steps[this.idx];
             const R = 55;                                  // fovea radius
@@ -1259,9 +1529,6 @@
 
             if (this.idx > 0) this.spans[this.idx - 1].classList.remove('active');
             this.spans[this.idx].classList.add('active');
-
-            // Remove scrollIntoView to prevent automatic scrolling
-            // this.spans[this.idx].scrollIntoView({ block: 'nearest' });
 
             this.timeout = setTimeout(() => this.nextStep(), 1800);  // pace
         }
@@ -1301,299 +1568,299 @@
     const ANSWER_BASKETS = "<answer> No </answer>";
 
     const STEPS_SPATIAL2 = [
-            {
-                text: "To determine if the watch is below the bathtub, I need to compare the vertical position of the watch relative to the bathtub. The watch is located at (1050, 350), which is higher up on the shelf compared to the bathtub at (420, 480).",
-                x: 1050,
-                y: 350
-            },
-            {
-                text: "The bathtub is further down at the coordinate (420, 480), indicating that the watch is not below it.",
-                x: 420,
-                y: 480
-            },
-            {
-                text: "Considering if there's any possibility that the watch could be positioned above the bathtub, such as the lower edge of the watch being aligned with the tub's edge at (780, 560).",
-                x: 780,
-                y: 560
-            },
-            {
-                text: "With consideration that the watch seems indeed higher on the shelf than the tub, its coordinate at (1050, 350) suggests there's no overlapping condition where the watch would be above the tub at (420, 480).",
-                x: 1050,
-                y: 350
-            },
-            {
-                text: "Given everything confirmed, examining a final place where consideration might diverge - noticing that the watch is located on the very highest shelf near to the tub at coordinate (1050, 340), this confirmation possibly excludes any further possibilities where the watch would be perceived as 'below' the tub.",
-                x: 1050,
-                y: 340
-            }
-        ];
+        {
+            text: "To determine if the watch is below the bathtub, I need to compare the vertical position of the watch relative to the bathtub. The watch is located at (1050, 350), which is higher up on the shelf compared to the bathtub at (420, 480).",
+            x: 1050,
+            y: 350
+        },
+        {
+            text: "The bathtub is further down at the coordinate (420, 480), indicating that the watch is not below it.",
+            x: 420,
+            y: 480
+        },
+        {
+            text: "Considering if there's any possibility that the watch could be positioned above the bathtub, such as the lower edge of the watch being aligned with the tub's edge at (780, 560).",
+            x: 780,
+            y: 560
+        },
+        {
+            text: "With consideration that the watch seems indeed higher on the shelf than the tub, its coordinate at (1050, 350) suggests there's no overlapping condition where the watch would be above the tub at (420, 480).",
+            x: 1050,
+            y: 350
+        },
+        {
+            text: "Given everything confirmed, examining a final place where consideration might diverge - noticing that the watch is located on the very highest shelf near to the tub at coordinate (1050, 340), this confirmation possibly excludes any further possibilities where the watch would be perceived as 'below' the tub.",
+            x: 1050,
+            y: 340
+        }
+    ];
 
     const INSTRUCTION_SPATIAL2 = "Question: Is the watch below the bathtub?";
     const ANSWER_SPATIAL2 = "<answer> No </answer>";
 
     const STEPS_SPATIAL3 = [
-            {
-                text: "<think> To determine if the pan can fit above the fridge, I'll need to consider the height of the pan relative to the space available above the fridge. At the point (400, 1100), which is near the top edge of the pan, we can see that the pan covers a significant vertical space.",
-                x: 400,
-                y: 1100
-            },
-            {
-                text: "Let's check another point (750, 800) which represents a central point on the back wall behind the fridge. The available vertical clearance above the top of the fridge is clear here. There is no major obstruction like a pipe or beam that would prevent the pan being placed directly against the upper corner wall above the fridge.",
-                x: 750,
-                y: 800
-            },
-            {
-                text: "Checking the proximity at the point (900, 500), which is near the upper shelf of what appears to be above the refrigerator, shows an empty space that would allow an object like the pan to be placed without obstruction.",
-                x: 900,
-                y: 500
-            },
-            {
-                text: "At the point (650, 1250), we note its compact structure. This reinforces the idea that space at the fridge's top would be suitable for the pan's placement provided no other elements are present. </think>",
-                x: 650,
-                y: 1250
-            }
-        ];
+        {
+            text: "To determine if the pan can fit above the fridge, I'll need to consider the height of the pan relative to the space available above the fridge. At the point (400, 1100), which is near the top edge of the pan, we can see that the pan covers a significant vertical space.",
+            x: 400,
+            y: 1100
+        },
+        {
+            text: "Let's check another point (750, 800) which represents a central point on the back wall behind the fridge. The available vertical clearance above the top of the fridge is clear here. There is no major obstruction like a pipe or beam that would prevent the pan being placed directly against the upper corner wall above the fridge.",
+            x: 750,
+            y: 800
+        },
+        {
+            text: "Checking the proximity at the point (900, 500), which is near the upper shelf of what appears to be above the refrigerator, shows an empty space that would allow an object like the pan to be placed without obstruction.",
+            x: 900,
+            y: 500
+        },
+        {
+            text: "At the point (650, 1250), we note its compact structure. This reinforces the idea that space at the fridge's top would be suitable for the pan's placement provided no other elements are present.",
+            x: 650,
+            y: 1250
+        }
+    ];
     const INSTRUCTION_SPATIAL3 = "Question: Can the pan fit above the fridge?";
     const ANSWER_SPATIAL3 = "<answer> Yes </answer>";
 
     // Web Grounding demos with instructions and answers
     const STEPS_GROUNDING1 = [
-            {
-                text: "I need to find the area that monitors calorie expenditure. The orange circle icon at (660, 935) is labeled '12 kcal', which suggests it is related to calorie expenditure.",
-                x: 660,
-                y: 935
-            },
-            {
-                text: "To confirm, I should check the other areas. The green circle icon at (660, 1518) is labeled 'Standing 2 hrs', which is related to physical activity but not directly to calorie expenditure.",
-                x: 660,
-                y: 1518
-            },
-            {
-                text: "The yellow circle icon at (210, 935) is labeled '166 steps', which is related to physical activity but not directly to calorie expenditure.",
-                x: 210,
-                y: 935
-            },
-            {
-                text: "The blue circle icon at (210, 1518) is labeled 'Moving', which is related to physical activity but not directly to calorie expenditure.",
-                x: 210,
-                y: 1518
-            },
-            {
-                text: "The red circle icon at (210, 2100) is labeled 'Blood oxvaen', which is related to blood oxygen levels, not calorie expenditure.",
-                x: 210,
-                y: 2100
-            },
-            {
-                text: "<answer> (660, 1029) </answer>",
-                x: 660,
-                y: 1029
-            }
-        ];
+        {
+            text: "<think>\nI need to find the area that monitors calorie expenditure. The orange circle icon at (660, 935) is labeled '12 kcal', which suggests it is related to calorie expenditure.",
+            x: 660,
+            y: 935
+        },
+        {
+            text: "To confirm, I should check the other areas. The green circle icon at (660, 1518) is labeled 'Standing 2 hrs', which is related to physical activity but not directly to calorie expenditure.",
+            x: 660,
+            y: 1518
+        },
+        {
+            text: "The yellow circle icon at (210, 935) is labeled '166 steps', which is related to physical activity but not directly to calorie expenditure.",
+            x: 210,
+            y: 935
+        },
+        {
+            text: "The blue circle icon at (210, 1518) is labeled 'Moving', which is related to physical activity but not directly to calorie expenditure.",
+            x: 210,
+            y: 1518
+        },
+        {
+            text: "The red circle icon at (210, 2100) is labeled 'Blood oxvaen', which is related to blood oxygen levels, not calorie expenditure.\n</think>",
+            x: 210,
+            y: 2100
+        },
+        {
+            text: "\n\n<answer> (660, 1029) </answer>",
+            x: 660,
+            y: 1029
+        }
+    ];
 
     const INSTRUCTION_GROUNDING1 = "Task: Locate the Monitor calorie expenditure button.";
     const ANSWER_GROUNDING1 = "";
 
     const STEPS_GROUNDING2 = [
-            {
-                text: "I will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
-                x: 3540,
-                y: 275
-            },
-            {
-                text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
-                x: 4000,
-                y: 3000
-            },
-            {
-                text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
-                x: 2000,
-                y: 1500
-            },
-            {
-                text: "Next, let's check the left side of the interface, where additional tools or options might be located. (500, 2000) The left side may contain a color picker icon.",
-                x: 500,
-                y: 2000
-            },
-            {
-                text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon. The color picker icon is likely not located in the top left corner.",
-                x: 500,
-                y: 500
-            },
-            {
-                text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)",
-                x: 3500,
-                y: 1500
-            },
-            {
-                text: "I will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
-                x: 3540,
-                y: 275
-            },
-            {
-                text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
-                x: 4000,
-                y: 3000
-            },
-            {
-                text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
-                x: 2000,
-                y: 1500
-            },
-            {
-                text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon.",
-                x: 500,
-                y: 500
-            },
-            {
-                text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)",
-                x: 3500,
-                y: 1500
-            },
-            {
-                text: "<answer> (500, 2000) </answer>",
-                x: 500,
-                y: 2000
-            }
-        ];
+        {
+            text: "<think>\nI will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
+            x: 3540,
+            y: 275
+        },
+        {
+            text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
+            x: 4000,
+            y: 3000
+        },
+        {
+            text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
+            x: 2000,
+            y: 1500
+        },
+        {
+            text: "Next, let's check the left side of the interface, where additional tools or options might be located. (500, 2000) The left side may contain a color picker icon.",
+            x: 500,
+            y: 2000
+        },
+        {
+            text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon. The color picker icon is likely not located in the top left corner.",
+            x: 500,
+            y: 500
+        },
+        {
+            text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)",
+            x: 3500,
+            y: 1500
+        },
+        {
+            text: "I will start by checking the top right corner where such icons are often placed. (3540, 275) There is no color picker icon visible in the top right corner.",
+            x: 3540,
+            y: 275
+        },
+        {
+            text: "Let's check the bottom right corner next, as color picker options might be located there as well. (4000, 3000) There is still no color picker icon in the bottom right corner.",
+            x: 4000,
+            y: 3000
+        },
+        {
+            text: "Now, let's check the center of the interface, as color pickers are sometimes integrated into the main editing area or toolbar. (2000, 1500) The color picker icon is not visible in the center of the interface.",
+            x: 2000,
+            y: 1500
+        },
+        {
+            text: "Let's check the top left corner, as color pickers can sometimes be accessed through a menu or tool button. (500, 500) The top left corner does not contain the color picker icon.",
+            x: 500,
+            y: 500
+        },
+        {
+            text: "Let's check the right side of the interface, as color pickers can sometimes be accessed through a menu or tool button. (3500, 1500)\n</think>",
+            x: 3500,
+            y: 1500
+        },
+        {
+            text: "\n\n<answer> (500, 2000) </answer>",
+            x: 500,
+            y: 2000
+        }
+    ];
 
     const INSTRUCTION_GROUNDING2 = "Task: Locate the button to show color picker of the image in pycharm.";
     const ANSWER_GROUNDING2 = "";
 
     const STEPS_GROUNDING3 = [
-            {
-                text: "I'll check around (1200, 400) to see if there's an edit option. There doesn't appear to be another 'Edit' button at (1200, 400).",
-                x: 1200,
-                y: 400
-            },
-            {
-                text: "To confirm the location, I'll check the top menu bar for any 'Edit' options. I'll look around (1000, 20) to see if there's an edit menu item there. There isn't an 'Edit' option in the top menu bar at (1000, 20).",
-                x: 1000,
-                y: 20
-            },
-            {
-                text: "To ensure there isn't another 'Edit' button in the toolbar, I'll check the toolbar area. I'll look around (1500, 300) to see if there's an edit button there. There isn't an 'Edit' button in the toolbar at (1500, 300).",
-                x: 1500,
-                y: 300
-            },
-            {
-                text: "To ensure there isn't an 'Edit' button in the sidebar, I'll check the sidebar area. I'll look around (500, 500) to see if there's an edit button there. There isn't an 'Edit' button in the sidebar at (500, 500).",
-                x: 500,
-                y: 500
-            },
-            {
-                text: "I'll now check the top left corner of the window for any additional 'Edit' buttons. I'll look around (100, 100) to see if there's an edit button there. There isn't an 'Edit' button in the top left corner at (100, 100).",
-                x: 100,
-                y: 100
-            },
-            {
-                text: "I'll now check the bottom right corner of the window for any additional 'Edit' buttons. I'll look around (1800, 750) to see if there's an edit button there. There isn't an 'Edit' button in the bottom right corner at (1800, 750).",
-                x: 1800,
-                y: 750
-            },
-            {
-                text: "To confirm the location, I'll check the central area of the window for any 'Edit' buttons. I'll look around (750, 400) to see if there's an edit button there. There isn't an 'Edit' button in the central area at (750, 400).",
-                x: 750,
-                y: 400
-            },
-            {
-                text: "I'll check the coordinates around (1315, 615). The 'Edit' button is indeed located at (1315, 615). This button is part of the user interface for managing user objects and likely allows for editing the selected object.",
-                x: 1315,
-                y: 615
-            },
-            {
-                text: "Predicted Answer: (1315, 615)",
-                x: 1315,
-                y: 615
-            }
-        ];
+        {
+            text: "<think>\nI'll check around (1200, 400) to see if there's an edit option. There doesn't appear to be another 'Edit' button at (1200, 400).",
+            x: 1200,
+            y: 400
+        },
+        {
+            text: "To confirm the location, I'll check the top menu bar for any 'Edit' options. I'll look around (1000, 20) to see if there's an edit menu item there. There isn't an 'Edit' option in the top menu bar at (1000, 20).",
+            x: 1000,
+            y: 20
+        },
+        {
+            text: "To ensure there isn't another 'Edit' button in the toolbar, I'll check the toolbar area. I'll look around (1500, 300) to see if there's an edit button there. There isn't an 'Edit' button in the toolbar at (1500, 300).",
+            x: 1500,
+            y: 300
+        },
+        {
+            text: "To ensure there isn't an 'Edit' button in the sidebar, I'll check the sidebar area. I'll look around (500, 500) to see if there's an edit button there. There isn't an 'Edit' button in the sidebar at (500, 500).",
+            x: 500,
+            y: 500
+        },
+        {
+            text: "I'll now check the top left corner of the window for any additional 'Edit' buttons. I'll look around (100, 100) to see if there's an edit button there. There isn't an 'Edit' button in the top left corner at (100, 100).",
+            x: 100,
+            y: 100
+        },
+        {
+            text: "I'll now check the bottom right corner of the window for any additional 'Edit' buttons. I'll look around (1800, 750) to see if there's an edit button there. There isn't an 'Edit' button in the bottom right corner at (1800, 750).",
+            x: 1800,
+            y: 750
+        },
+        {
+            text: "To confirm the location, I'll check the central area of the window for any 'Edit' buttons. I'll look around (750, 400) to see if there's an edit button there. There isn't an 'Edit' button in the central area at (750, 400).",
+            x: 750,
+            y: 400
+        },
+        {
+            text: "I'll check the coordinates around (1315, 615). The 'Edit' button is indeed located at (1315, 615). This button is part of the user interface for managing user objects and likely allows for editing the selected object.\n</think>",
+            x: 1315,
+            y: 615
+        },
+        {
+            text: "\n\n<answer> (1315, 615) </answer>",
+            x: 1315,
+            y: 615
+        }
+    ];
 
 
     const INSTRUCTION_GROUNDING3 = "Task: Start slide show from current slide.";
     const ANSWER_GROUNDING3 = "";
 
     // Web Action Prediction demos
-    const STEPS_ACTION1 = [
-            {
-                text: "<think> The task is to identify the username associated with the image containing the largest proportion of the moon. Visually inspecting the posts, the image at coordinates (350, 215) appears to have a significantly larger portion of the moon compared to others.",
-                x: 350,
-                y: 215
-            },
-            {
-                text: "The post below it mentions working with 380 RAW images of the moon, suggesting a substantial focus on lunar imagery. Clicking on this post might reveal more details about the poster and their work related to moon images (200, 1030).",
-                x: 200,
-                y: 1030
-            },
-            {
-                text: "To determine if my assessment was correct regarding the post with InternationalBack472's submission having a large proportion of the moon, I need to inspect further details about their post. The username 'InternationalBack472' is displayed next to their post at (350, 215).",
-                x: 350,
-                y: 215
-            },
-            {
-                text: "However, I should check if there are any other posts that might have a larger proportion of the moon. The image at coordinates (200, 1595) also features a significant portion of the moon but seems less prominent than another image in this thread.",
-                x: 200,
-                y: 1595
-            },
-            {
-                text: "This confirms that InternationalBack472's post indeed has a large proportion of the moon and they are likely associated with it (350, 215). </think>",
-                x: 350,
-                y: 215
-            }
-        ];
-    const INSTRUCTION_ACTION1 = "Instruction: Consider all post in this page. What is the username of the user that posted the picture where the moon takes up the largest proportion of the image?";
-    const ANSWER_ACTION1 = "<answer> stop [InternationalBack472] </answer>";
-
     const STEPS_ACTION2 = [
-            {
-                text: "<think> The product is yellow, so the next step is likely to add it to the cart. The 'Add to Cart' button (896, 752) seems like the appropriate control for this action.",
-                x: 896,
-                y: 752
-            },
-            {
-                text: "Since the product is yellow and visible in the main image at (380, 810), I need to confirm if there are any additional actions needed.",
-                x: 380,
-                y: 810
-            },
-            {
-                text: "The size options suggest that selecting the correct size might be necessary before adding to cart. However, the main focus remains on adding it to cart.",
-                x: 896,
-                y: 652
-            },
-            {
-                text: "The product description section at (594, 1760) confirms that this is indeed a yellow sunflower painting by Van Gogh. While reviewing details is good practice, it doesn't impact our immediate goal of adding it to the cart.",
-                x: 594,
-                y: 1760
-            },
-            {
-                text: "The 'Add to Cart' button at (924, 763) is clearly visible and relevant for completing our objective of adding this yellow painting to our cart. </think>",
-                x: 924,
-                y: 763
-            }
-        ];
-    const INSTRUCTION_ACTION2 = "Instruction: Add this to my cart if it is yellow.";
-    const ANSWER_ACTION2 = "<answer> click [36] </answer>";
+        {
+            text: "The task is to identify the username associated with the image containing the largest proportion of the moon. Visually inspecting the posts, the image at coordinates (350, 215) appears to have a significantly larger portion of the moon compared to others.",
+            x: 350,
+            y: 215
+        },
+        {
+            text: "The post below it mentions working with 380 RAW images of the moon, suggesting a substantial focus on lunar imagery. Clicking on this post might reveal more details about the poster and their work related to moon images (200, 1030).",
+            x: 200,
+            y: 1030
+        },
+        {
+            text: "To determine if my assessment was correct regarding the post with InternationalBack472's submission having a large proportion of the moon, I need to inspect further details about their post. The username 'InternationalBack472' is displayed next to their post at (350, 215).",
+            x: 350,
+            y: 215
+        },
+        {
+            text: "However, I should check if there are any other posts that might have a larger proportion of the moon. The image at coordinates (200, 1595) also features a significant portion of the moon but seems less prominent than another image in this thread.",
+            x: 200,
+            y: 1595
+        },
+        {
+            text: "This confirms that InternationalBack472's post indeed has a large proportion of the moon and they are likely associated with it (350, 215).",
+            x: 350,
+            y: 215
+        }
+    ];
+    const INSTRUCTION_ACTION2 = "Instruction: Consider all post in this page. What is the username of the user that posted the picture where the moon takes up the largest proportion of the image?";
+    const ANSWER_ACTION2 = "<answer> stop [InternationalBack472] </answer>";
+
+    const STEPS_ACTION1 = [
+        {
+            text: "The product is yellow, so the next step is likely to add it to the cart. The 'Add to Cart' button (896, 752) seems like the appropriate control for this action.",
+            x: 896,
+            y: 752
+        },
+        {
+            text: "Since the product is yellow and visible in the main image at (380, 810), I need to confirm if there are any additional actions needed.",
+            x: 380,
+            y: 810
+        },
+        {
+            text: "The size options suggest that selecting the correct size might be necessary before adding to cart. However, the main focus remains on adding it to cart.",
+            x: 896,
+            y: 652
+        },
+        {
+            text: "The product description section at (594, 1760) confirms that this is indeed a yellow sunflower painting by Van Gogh. While reviewing details is good practice, it doesn't impact our immediate goal of adding it to the cart.",
+            x: 594,
+            y: 1760
+        },
+        {
+            text: "The 'Add to Cart' button at (924, 763) is clearly visible and relevant for completing our objective of adding this yellow painting to our cart.",
+            x: 924,
+            y: 763
+        }
+    ];
+    const INSTRUCTION_ACTION1 = "Instruction: Add this to my cart if it is yellow.";
+    const ANSWER_ACTION1 = "<answer> click [36] </answer>";
 
     const STEPS_ACTION3 = [
-            {
-                text: "<think> The OBJECTIVE is to determine the price range of all red vehicles. At (400, 340), there is a red Ford Focus SEL listed for $7800.",
-                x: 500,
-                y: 440
-            },
-            {
-                text: "At (950, 415), another red vehicle, a Ford Explorer Sport, is priced at $8400.",
-                x: 950,
-                y: 415
-            },
-            {
-                text: "To find more red vehicles, I should check the listings further. At (220, 715), there's a link to refine the category to 'Cars + trucks,' which might help filter results better and find additional red vehicles.",
-                x: 220,
-                y: 715
-            },
-            {
-                text: "The OBJECTIVE requires identifying all red vehicles and their prices. At (525, 965), there's a red Volkswagen Beetle listed for $9999; this falls within our target group. This point helps confirm we're on the right track and ensures we're capturing various price points among red vehicles. </think>",
-                x: 525,
-                y: 965
-            }
-        ];
+        {
+            text: "The OBJECTIVE is to determine the price range of all red vehicles. At (400, 340), there is a red Ford Focus SEL listed for $7800.",
+            x: 500,
+            y: 440
+        },
+        {
+            text: "At (950, 415), another red vehicle, a Ford Explorer Sport, is priced at $8400.",
+            x: 950,
+            y: 415
+        },
+        {
+            text: "To find more red vehicles, I should check the listings further. At (220, 715), there's a link to refine the category to 'Cars + trucks,' which might help filter results better and find additional red vehicles.",
+            x: 220,
+            y: 715
+        },
+        {
+            text: "The OBJECTIVE requires identifying all red vehicles and their prices. At (525, 965), there's a red Volkswagen Beetle listed for $9999; this falls within our target group. This point helps confirm we're on the right track and ensures we're capturing various price points among red vehicles.",
+            x: 525,
+            y: 965
+        }
+    ];
     const INSTRUCTION_ACTION3 = "Instruction: What is the price range of all the red vehicles on this page?";
     const ANSWER_ACTION3 = "<answer> stop [The red vehicles on this page range in price from $7,800 to $9,999] </answer>";
 
@@ -1608,40 +1875,61 @@
         demoInstances.spatial3 = new EyeDemo('#demo-spatial3', STEPS_SPATIAL3, INSTRUCTION_SPATIAL3, ANSWER_SPATIAL3);
 
         // Web grounding demos
-        demoInstances.grounding1 = new EyeDemo('#demo-grounding1', STEPS_GROUNDING1, INSTRUCTION_GROUNDING1, ANSWER_GROUNDING1);
-        demoInstances.grounding2 = new EyeDemo('#demo-grounding2', STEPS_GROUNDING2, INSTRUCTION_GROUNDING2, ANSWER_GROUNDING2);
-        demoInstances.grounding3 = new EyeDemo('#demo-grounding3', STEPS_GROUNDING3, INSTRUCTION_GROUNDING3, ANSWER_GROUNDING3);
-        
+        demoInstances.grounding1 = new EyeDemo('#demo-grounding1', STEPS_GROUNDING1, INSTRUCTION_GROUNDING1, ANSWER_GROUNDING1, true);
+        demoInstances.grounding2 = new EyeDemo('#demo-grounding2', STEPS_GROUNDING2, INSTRUCTION_GROUNDING2, ANSWER_GROUNDING2, true);
+        demoInstances.grounding3 = new EyeDemo('#demo-grounding3', STEPS_GROUNDING3, INSTRUCTION_GROUNDING3, ANSWER_GROUNDING3, true);
+
         // Web action prediction demos
         demoInstances.action1 = new EyeDemo('#demo-action1', STEPS_ACTION1, INSTRUCTION_ACTION1, ANSWER_ACTION1);
         demoInstances.action2 = new EyeDemo('#demo-action2', STEPS_ACTION2, INSTRUCTION_ACTION2, ANSWER_ACTION2);
         demoInstances.action3 = new EyeDemo('#demo-action3', STEPS_ACTION3, INSTRUCTION_ACTION3, ANSWER_ACTION3);
     });
 
-    /* ---------- Tab switching function ---------- */
-    function openTab(evt, tabName, tabGroup) {
-        // Hide all tab content in the current group
-        var tabcontents = document.getElementsByClassName("tabcontent " + tabGroup);
-        for (var i = 0; i < tabcontents.length; i++) {
-            tabcontents[i].style.display = "none";
+    /* Slider navigation function */
+    function showSlide(categoryName, slideIndex) {
+        // Hide all slides in this category
+        const slides = document.querySelectorAll(`.slide.${categoryName}`);
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
+        // Show the selected slide
+        slides[slideIndex].classList.add('active');
+
+        // Update dots
+        const dots = document.querySelectorAll(`.dot.${categoryName}`);
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
+        dots[slideIndex].classList.add('active');
+
+        // Reset the demo for the current slide
+        const slideId = slides[slideIndex].id;
+        if (demoInstances[slideId]) {
+            demoInstances[slideId].reset();
         }
+    }
 
-        // Remove "active" class from all tab buttons in the current group
-        var tablinks = document.getElementsByClassName("tablinks " + tabGroup);
-        for (var i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-
-        // Show the specific tab content
-        document.getElementById(tabName).style.display = "block";
-
-        // Add "active" class to the button that opened the tab
-        evt.currentTarget.className += " active";
-
-        // Reset the appropriate demo when switching tabs
-        if (demoInstances[tabName]) {
-            demoInstances[tabName].reset();
-        }
+    /* Function to navigate to the previous or next slide */
+    function navigateSlide(categoryName, direction) {
+        // Get all dots in this category
+        const dots = document.querySelectorAll(`.dot.${categoryName}`);
+        
+        // Find the index of the currently active dot
+        let currentIndex = 0;
+        dots.forEach((dot, index) => {
+            if (dot.classList.contains('active')) {
+                currentIndex = index;
+            }
+        });
+        
+        // Calculate the new index, with wraparound
+        let newIndex = currentIndex + direction;
+        if (newIndex < 0) newIndex = dots.length - 1;
+        if (newIndex >= dots.length) newIndex = 0;
+        
+        // Show the new slide
+        showSlide(categoryName, newIndex);
     }
 </script>
 
