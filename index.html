@@ -5,7 +5,7 @@
     <!-- Google tag (gtag.js) -->
 
     <!-- Taken from view-source:https://voyager.minedojo.org/ -->
-    <script async src=""></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q75H4YSQ8M"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -1239,33 +1239,20 @@
                     <div class="w3-center">
                         <h2>Abstract</h2>
                     </div>
-                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language
-                        models in tasks such as
-                        mathematics and coding, visual reasoning introduces added complexity by requiring models to
-                        direct visual attention,
-                        interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce
-                        <strong>ViGoRL</strong>
-                        (Visually Grounded Reinforcement Learning), a vision-language model trained with RL to
-                        explicitly anchor each
-                        reasoning step to specific visual coordinates. Inspired by human visual decision-making,
-                        <strong>ViGoRL</strong>
-                        learns to produce spatially grounded reasoning traces, guiding visual attention to task-relevant
-                        regions at each
-                        step. Across a diverse set of visual reasoning benchmarks—including SAT-2 and BLINK for spatial
-                        reasoning, and
-                        ScreenSpot and VisualWebArena for web-based grounding—<strong>ViGoRL</strong> consistently
-                        outperforms both
-                        supervised fine-tuning and conventional RL baselines that lack explicit grounding mechanisms.
-                        Incorporating
-                        multi-turn RL with visual feedback further improves <strong>ViGoRL</strong>'s performance on
-                        localizing small
-                        elements. Additionally, we find that grounding amplifies other visual behaviors such as region
-                        exploration, visual
-                        subgoal setting, and verification. Finally, human evaluations show that the model's visual
-                        references are not only
-                        spatially accurate but also helpful for understanding model reasoning steps. Our results show
-                        that visually grounded
-                        RL is a strong paradigm for imbuing models with general-purpose visual reasoning.</p>
+                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language models in tasks such as
+                    mathematics and coding, visual reasoning introduces added complexity by requiring models to direct visual attention,
+                    interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce <b>ViGoRL</b> (<b>Vi</b>sually <b>G</b>r<b>o</b>unded <b>R</b>einforcement <b>L</b>earning), a vision-language model trained with RL to explicitly
+                    anchor each reasoning step to specific visual coordinates. Inspired by human visual decision-making, <b>ViGoRL</b> learns to produce spatially grounded reasoning
+                    traces, guiding visual attention to task-relevant regions at each step. When fine-grained exploration is required, our
+                    novel multi-turn RL framework enables the model to dynamically zoom into predicted coordinates as reasoning unfolds.
+                    Across a diverse set of visual reasoning benchmarks—including SAT-2 and BLINK for spatial reasoning, Vbench for visual
+                    search, and ScreenSpot and VisualWebArena for web-based grounding—<b>ViGoRL</b> consistently outperforms both supervised
+                    fine-tuning and conventional RL baselines that lack explicit grounding mechanisms. Incorporating multi-turn RL with
+                    zoomed-in visual feedback significantly improves <b>ViGoRL’s</b> performance on localizing small GUI elements and visual
+                    search, achieving 86.4% on VBench. Additionally, we find that grounding amplifies other visual behaviors such as region
+                    exploration, grounded subgoal setting, and visual verification. Finally, human evaluations show that the model’s visual
+                    references are not only spatially accurate but also helpful for understanding model reasoning steps. Our results show
+                    that visually grounded RL is a strong paradigm for imbuing models with general-purpose visual reasoning.</p>
                     <hr>
                 </div>
 
