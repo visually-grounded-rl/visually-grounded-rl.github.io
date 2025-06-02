@@ -1239,7 +1239,7 @@
                     <div class="w3-center">
                         <h2>Abstract</h2>
                     </div>
-                    <p>While reinforcement learning (RL) over chains of thought has significantly advanced language models in tasks such as
+                    <p style="text-align: left;">While reinforcement learning (RL) over chains of thought has significantly advanced language models in tasks such as
                     mathematics and coding, visual reasoning introduces added complexity by requiring models to direct visual attention,
                     interpret perceptual inputs, and ground abstract reasoning in spatial evidence. We introduce <b>ViGoRL</b> (<b>Vi</b>sually <b>G</b>r<b>o</b>unded <b>R</b>einforcement <b>L</b>earning), a vision-language model trained with RL to explicitly
                     anchor each reasoning step to specific visual coordinates. Inspired by human visual decision-making, <b>ViGoRL</b> learns to produce spatially grounded reasoning
@@ -1255,6 +1255,148 @@
                     that visually grounded RL is a strong paradigm for imbuing models with general-purpose visual reasoning.</p>
                     <hr>
                 </div>
+
+            <!-- =========================  Approach Section  ========================= -->
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column is-full-width">
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Title -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <h2 class="title is-3">Approach</h2>
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Overview figure + one-paragraph summary -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <div class="content has-text-centered has-text-justified">
+                                <!-- Replace the path below with the high-level methods figure from your paper -->
+                                <img src="images/methods_figure_tweet.png" alt="ViGoRL overview" />
+                                <p>
+                                    <strong>ViGoRL</strong> (<em>Visually Grounded Reinforcement Learning</em>)
+                                    turns a generic vision–language model into a <em>grounded visual
+                                        reasoner</em>.
+                                    We (1)&nbsp;warm-start the model with
+                                    <strong>MCTS-generated reasoning traces</strong> that bind every thought to
+                                    an <code>(x,y)</code> image coordinate, then
+                                    (2)&nbsp;apply <strong>GRPO</strong> to reinforce trajectories that are both
+                                    <em>correct</em> and <em>properly grounded</em>.
+                                    A final (optional) stage upgrades the model to
+                                    <strong>multi-turn RL</strong>, allowing it to request high-resolution crops
+                                    at its predicted coordinates—mirroring how humans “zoom&thinsp;in” when
+                                    they need finer detail.
+                                </p>
+                            </div>
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Stage 1: MCTS-guided warm start -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <h3 class="title is-4">Stage 1 · MCTS-Guided Warm Start</h3>
+                            <!-- <img src="static/images/mcts_warmstart.png" alt="MCTS warm start"
+                                style="width: 70%; height: auto; display: block; margin: 0 auto;" /> -->
+                            <p style="text-align: left;">
+                                We probe a frozen, high-capacity teacher (Qwen2.5-VL-72B) with the
+                                current image&nbsp;✕&nbsp;query pair.
+                                A Monte-Carlo Tree Search expands nodes that bundle a textual step
+                                and a coordinate
+                                <code>n&nbsp;=&nbsp;&lt;s, (x,y)&gt;</code>.
+                                Back-propagated correctness scores steer the search toward
+                                <em>diverse yet successful</em> grounded chains.
+                                Root-to-leaf paths are then linearised into 30 k high-quality training
+                                traces rich in exploration, verification and back-tracking
+                                behaviour—signals that are essentially absent from base VLMs and crowdsourced
+                                CoT datasets.
+                            </p>
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Stage 2: Grounded Reinforcement Learning -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <h3 class="title is-4">Stage 2 · Grounded Reinforcement Learning</h3>
+                            <!-- <img src="static/images/grpo.png" alt="Grounded GRPO"
+                                style="width: 70%; height: auto; display: block; margin: 0 auto;" /> -->
+                            <p style="text-align: left;">
+                                Starting from the warm-started policy
+                                <code>π<sub>θ₀</sub></code>,
+                                we optimise with <strong>Group Relative Policy Optimisation (GRPO)</strong>.
+                                The reward blends
+                                <em>task success</em> with a stringent <em>format bonus</em>:
+                                traces receive credit only if every reasoning step includes a valid
+                                coordinate and all tags
+                                (e.g.&nbsp;<code>&lt;think&gt;</code>, <code>&lt;answer&gt;</code>)
+                                are well-formed.
+                                The resulting model
+                            <div style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+                                <div style="flex: 1.2; min-width: 350px;">
+                                    <p style="text-align: left; margin-bottom: 10px;">
+                                        The resulting model
+                                    </p>
+                                    <ul style="text-align:left; margin-left: 2em; list-style-type: disc;">
+                                        <li>examines 2&nbsp;× more regions than vanilla GRPO,</li>
+                                        <li>sets grounded sub-goals 15&nbsp;× more often,</li>
+                                        <li>back-tracks when its current hypothesis fails.</li>
+                                    </ul>
+                                </div>
+                                <div style="flex: 1; min-width: 320px;">
+                                    <p style="text-align: left; margin-bottom: 10px;">
+                                        These behaviors translate into strong performance:
+                                    </p>
+                                    <ul style="text-align:left; margin-left: 2em; list-style-type: disc;">
+                                        <li><strong>+12.9 pts</strong> over vanilla GRPO on <strong>SAT-2</strong>,</li>
+                                        <li><strong>+6.1 pts</strong> over direct SFT on <strong>ScreenSpot-Pro</strong>,</li>
+                                        <li><strong>+3.0 pts</strong> over SOTA 7B on <strong>VisualWebArena</strong>,</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </p>
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Optional: Multi-Turn visual feedback -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <h3 class="title is-5">
+                                Multi-Turn RL with Zoom-In Feedback
+                            </h3>
+                            <!-- <img src="static/images/multiturn_zoom.png" alt="Multi-turn zoom RL"
+                                style="width: 70%; height: auto; display: block; margin: 0 auto;" /> -->
+                            <p style="text-align: left;">
+                                Fine-grained cues (e.g.&nbsp;small GUI text, background figure) are blurred in the
+                                global view.
+                                We therefore let the model emit a
+                                <code>&lt;tool_call name="crop"&gt;</code>
+                                after each coordinate prediction; the environment
+                                replies with a high-resolution crop centred on that point.
+                                GRPO on these <em>dialog-style</em> traces further lifts accuracy on
+                                small-element localisation tasks
+                                (<strong>+2.4 % ScreenSpot-Pro-LR</strong>)
+                                and pushes <strong>V*Bench&nbsp;→ 86.4 %</strong>.
+                            </p>
+            
+                            <!-- ---------------------------------------------------------------- -->
+                            <!-- Why grounding matters -->
+                            <!-- ---------------------------------------------------------------- -->
+                            <h3 class="title is-4">Why Does Grounding Matter?</h3>
+                            <div style="display: flex; justify-content: center; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                                <img src="images/behavior_plot_tweet.png" alt="Behavioral analysis"
+                                    style="width: 45%; height: auto; min-width: 300px;" />
+                                <img src="images/participant_summary_nature.jpg" alt="Behavioral analysis"
+                                    style="width: 45%; height: auto; min-width: 300px;" />
+                            </div>
+                            <p style="text-align: left;">
+                                Grounded RL <em>amplifies</em> the visual behaviours that correlate
+                                with out-of-distribution generalisation:
+                                wider region exploration, explicit visual verification, and robust
+                                back-tracking.
+                                The result is a compact open-weight model that
+                                <strong>matches—or beats—proprietary giants</strong> on spatial
+                                reasoning, web grounding, and fine-grained visual search, all while
+                                producing interpretable, clickable coordinates at every step.
+                            </p>
+            
+                        </div> <!-- /.column -->
+                    </div> <!-- /.columns -->
+                </div> <!-- /.container -->
+            </section>
+            <!-- =====================  /Approach Section  ============================ -->
 
             </div><!-- End paper container -->
             <div class="w3-center">
@@ -1420,6 +1562,27 @@
 
         </div><!-- End Grid -->
     </div><!-- End Page Container -->
+
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:1080px;">
+        <div class="w3-row-padding">
+            <div class="w3-display-container w3-row w3-white w3-margin-bottom">
+                <section id="citation">
+                    <div class="w3-center">
+                        <h2>Citation</h2>
+                    </div>
+                    <div class="cit_cont">
+                        <pre style="background-color:#F5F5F5;"><code><font size="-1">@inproceedings{sarch2025vigorl,
+    title={Grounded Reinforcement Learning for Visual Reasoning},
+    author={Sarch, Gabriel and Saha, Snigdha and Khandelwal, Naitik and Jain, Ayush and Tarr, Michael J and
+    Kumar, Aviral and Fragkiadaki, Katerina},
+    year={2025}
+}
+</font></code></pre>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
