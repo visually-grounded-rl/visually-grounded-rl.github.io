@@ -1646,15 +1646,17 @@
             this.spans = steps.map((s, i) => {
                 const span = document.createElement('span');
                 let textContent = s.text;
-
-                // // Handle think tags if needed
-                // if (this.removeThinkTags) {
-                //     // Safely remove any <think> and </think> tags
-                //     textContent = textContent.replace(/<\/?think>/g, '');
-                // }
-
-                span.textContent = textContent + ' ';
+                span.textContent = textContent;
                 this.story.appendChild(span);
+                
+                // Add double line breaks after each step except the last one
+                if (i < steps.length - 1) {
+                    const br1 = document.createElement('br');
+                    const br2 = document.createElement('br');
+                    this.story.appendChild(br1);
+                    this.story.appendChild(br2);
+                }
+                
                 return span;
             });
 
@@ -1828,7 +1830,7 @@
             y: 2100
         },
         {
-            text: "\n\n<answer> (660, 1029) </answer>",
+            text: "<answer> (660, 1029) </answer>",
             x: 660,
             y: 1029
         }
@@ -1894,7 +1896,7 @@
             y: 1500
         },
         {
-            text: "\n\n<answer> (500, 2000) </answer>",
+            text: "<answer> (500, 2000) </answer>",
             x: 500,
             y: 2000
         }
@@ -1945,7 +1947,7 @@
             y: 615
         },
         {
-            text: "\n\n<answer> (1315, 615) </answer>",
+            text: "<answer> (1315, 615) </answer>",
             x: 1315,
             y: 615
         }
