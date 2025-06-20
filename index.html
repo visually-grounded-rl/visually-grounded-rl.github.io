@@ -309,7 +309,7 @@
     <!-- Paper button -->
     <style>
         .btn-paper {
-            width: 95px;
+            width: 90px;
             height: 35px;
             cursor: pointer;
             border-radius: 25px;
@@ -339,7 +339,7 @@
             /* top: 0px;
             right: 0;
             float: left; */
-            padding-right: 1px;
+            padding-right: 6px;
             padding-left: 6px;
         }
     </style>
@@ -385,7 +385,7 @@
     <!-- Code button -->
     <style>
         .btn-code {
-            width: 220px;
+            width: 95px;
             height: 35px;
             cursor: pointer;
             border-radius: 25px;
@@ -414,8 +414,80 @@
             /* top: 0px;
             left: 0px;
             float: left; */
-            padding-right: 8px;
-            padding-left: 10px;
+            padding-right: 6px;
+            padding-left: 8px;
+        }
+    </style>
+
+    <style>
+        .btn-models {
+            width: 115px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+    
+        .btn-models:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    
+        .vertical-center-models {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
+                left: 0px;
+                float: left; */
+            padding-right: 6px;
+            padding-left: 6px;
+        }
+    </style>
+
+    <style>
+        .btn-datasets {
+            width: 120px;
+            height: 35px;
+            cursor: pointer;
+            border-radius: 25px;
+            background: transparent;
+            border: 2px solid #91C9FF;
+            outline: none;
+            transition: 1s ease-in-out;
+            text-decoration: none;
+            align-items: center;
+            display: flex;
+            text-align: center;
+            font-weight: 500;
+            color: black;
+        }
+    
+        .btn-datasets:hover {
+            transition: 0.75s ease-in-out;
+            background: #8bb2ff1e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    
+        .vertical-center-datasets {
+            height: 80%;
+            position: relative;
+            /* top: 0px;
+                    left: 0px;
+                    float: left; */
+            padding-right: 6px;
+            padding-left: 6px;
         }
     </style>
 
@@ -1229,7 +1301,13 @@
                         </a>
                         <a href="https://github.com/Gabesarch/grounded-rl" target="_blank" class="btn-code"
                             role="button">
-                            <img src="images/code.png" class="vertical-center-code"> Code (Coming Soon)
+                            <img src="images/code.png" class="vertical-center-code"> Code
+                        </a>
+                        <a href="https://huggingface.co/collections/gsarch/vigorl-6855655677fd6ff5864f65f2" target="_blank" class="btn-models" role="button">
+                            <img src="images/brain.png" class="vertical-center-code"> Models
+                        </a>
+                        <a href="https://huggingface.co/datasets/gsarch/vigorl_datasets" target="_blank" class="btn-datasets" role="button">
+                            <img src="images/data.png" class="vertical-center-code"> Datasets
                         </a>
                     </div>
 
